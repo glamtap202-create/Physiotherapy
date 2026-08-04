@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CB Physio Therapy</title>
+<link rel="stylesheet" href="physiotherapy/css/style.css">
+</head>
+<body>
+
+  <!-- ===== Top Utility Bar ===== -->
+  <div class="topbar">
+    <div class="topbar__left">
+      <a href="tel:+911234567890" class="topbar__link">
+        <span class="icon icon-call"></span> Call
+      </a>
+      <a href="https://wa.me/911234567890" class="topbar__link topbar__link--whatsapp">
+        <span class="icon icon-whatsapp"></span> Whatsapp
+      </a>
+    </div>
+    <div class="topbar__right">
+      <a href="#" aria-label="Facebook" class="social-icon"><span class="icon icon-fb"></span></a>
+      <a href="#" aria-label="Twitter" class="social-icon"><span class="icon icon-tw"></span></a>
+      <a href="#" aria-label="LinkedIn" class="social-icon"><span class="icon icon-li"></span></a>
+      <a href="#" aria-label="Instagram" class="social-icon"><span class="icon icon-ig"></span></a>
+    </div>
+  </div>
+
+  <!-- ===== Main Navigation ===== -->
+  <header class="navbar">
+    <a href="index.html" class="brand">
+      <span class="brand__logo"></span>
+      <span class="brand__text">CB <strong>PHYSIO<br>THERAPY</strong></span>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav" id="mainNav">
+      <a href="index.html" class="nav__link is-active">Home</a>
+      <a href="about.html" class="nav__link">About Us</a>
+      <div class="nav__dropdown">
+        <button class="nav__link nav__link--drop">Our Offerings <span class="chevron"></span></button>
+        <div class="nav__dropdown-menu">
+          <a href="#">Sports Physiotherapy</a>
+          <a href="#">Post-Surgery Rehab</a>
+          <a href="#">Neuro Rehabilitation</a>
+          <a href="#">Pain Management</a>
+        </div>
+      </div>
+      <a href="faq.html" class="nav__link">FAQ</a>
+      <div class="nav__dropdown">
+        <button class="nav__link nav__link--drop">Patient Education <span class="chevron"></span></button>
+        <div class="nav__dropdown-menu">
+          <a href="blog.html">Blog</a>
+          <a href="#">Exercise Library</a>
+          <a href="#">Recovery Guides</a>
+        </div>
+      </div>
+      <div class="nav__dropdown">
+        <button class="nav__link nav__link--drop">Work With Us <span class="chevron"></span></button>
+        <div class="nav__dropdown-menu">
+          <a href="#">Careers</a>
+          <a href="#">Partnerships</a>
+        </div>
+      </div>
+    </nav>
+
+    <a href="contact.html" class="location-pin" aria-label="Find our location">
+      <span class="icon icon-pin"></span>
+    </a>
+  </header>
+
+  <!-- ===== Hero / Banner Section ===== -->
+  <section class="hero">
+    <div class="hero__media">
+      <img src="physiotherapy/images/image.png" alt="Physiotherapist assisting patient with AI-guided recovery equipment" class="hero__img">
+      <div class="hero__overlay"></div>
+    </div>
+
+    <div class="hero__content">
+      <h1 class="hero__title">AI Precision Recovery -</h1>
+      <p class="hero__subtitle">Clinically guided, AI-driven care for pain relief, functional recovery, and long-term everyday performance</p>
+
+      <div class="hero__actions">
+        <a href="#callback" class="btn btn--outline">
+          Request Callback <span class="btn__arrow">&rarr;</span>
+        </a>
+        <a href="appointment.html" class="btn btn--solid">
+          Book Appointment <span class="btn__arrow">&rarr;</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Floating contact bubbles -->
+    <div class="floating-contact">
+      <a href="tel:+911234567890" class="fab fab--call" aria-label="Call us"></a>
+      <a href="https://wa.me/911234567890" class="fab fab--whatsapp" aria-label="Chat on WhatsApp"></a>
+    </div>
+  </section>
+
+<script src="physiotherapy/js/menu.js"></script>
+</body>
+</html>
