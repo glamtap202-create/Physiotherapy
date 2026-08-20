@@ -54,6 +54,17 @@ img {
     margin: auto;
 }
 
+/* FIX: ".container" was used in the footer markup but was never
+   defined anywhere in this stylesheet, so the footer had no
+   max-width and stretched edge-to-edge instead of staying
+   centered/contained like every other section. Adding it here
+   (same rule as .section-container) fixes that without having
+   to touch every page's HTML. */
+.container {
+    width: min(1180px, 90%);
+    margin: auto;
+}
+
 
 /* =====================================================
    TOP BAR
@@ -680,132 +691,89 @@ img {
     color: #ffffff;
 }
 
-
 /* =====================================================
    FOOTER
 ===================================================== */
 
 .footer {
-    background: #142a24;
-
+    background: #062f2d;
     color: #ffffff;
+    padding: 75px 0 0;
 }
 
-.footer-container {
-    width: min(1180px, 90%);
+/* =========================
+   FOOTER GRID
+========================= */
 
-    margin: auto;
-
-    padding: 75px 0 60px;
-
+.footer-grid {
     display: grid;
-
-    grid-template-columns:
-        1.6fr
-        1fr
-        1fr
-        1.3fr;
-
+    grid-template-columns: 1.4fr 0.8fr 1fr 1fr;
     gap: 50px;
+    padding-bottom: 55px;
 }
 
-.footer-brand h2 {
-    font-family: "Playfair Display", serif;
+/* =========================
+   FOOTER BRAND
+========================= */
 
-    font-size: 27px;
-
-    margin-bottom: 15px;
+.footer-brand img {
+    width: 170px;
+    background: #ffffff;
+    padding: 7px;
+    border-radius: 5px;
+    margin-bottom: 18px;
 }
 
 .footer-brand p {
-    max-width: 360px;
-
-    color: rgba(255,255,255,0.65);
-
+    color: rgba(255, 255, 255, 0.65);
+    max-width: 330px;
     font-size: 14px;
+    line-height: 1.8;
 }
 
-.footer-social {
-    display: flex;
-
-    gap: 9px;
-
-    margin-top: 22px;
-}
-
-.footer-social a {
-    width: 34px;
-    height: 34px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border: 1px solid rgba(255,255,255,0.2);
-
-    border-radius: 50%;
-
-    font-size: 12px;
-
-    transition: 0.3s ease;
-}
-
-.footer-social a:hover {
-    background: #0d7377;
-    border-color: #0d7377;
-}
+/* =========================
+   FOOTER COLUMNS
+========================= */
 
 .footer-column {
     display: flex;
     flex-direction: column;
-
-    gap: 10px;
+    align-items: flex-start;
+    gap: 9px;
 }
 
 .footer-column h3 {
+    color: #ffffff;
     margin-bottom: 10px;
-
-    color: #0d7377;
-
-    font-size: 14px;
-
-    text-transform: uppercase;
-
-    letter-spacing: 1px;
+    font-size: 16px;
+    font-weight: 700;
 }
 
 .footer-column a,
 .footer-column p {
-    color: rgba(255,255,255,0.65);
-
-    font-size: 13px;
-
-    transition: 0.3s ease;
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 14px;
+    line-height: 1.6;
+    transition: color 0.3s ease;
 }
 
 .footer-column a:hover {
-    color: #ffffff;
+    color: #72d8d1;
 }
 
+/* =========================
+   FOOTER BOTTOM
+========================= */
+
 .footer-bottom {
-    width: min(1180px, 90%);
-
-    margin: auto;
-
-    padding: 20px 0;
-
-    border-top: 1px solid rgba(255,255,255,0.1);
-
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 22px 0;
     display: flex;
-
-    align-items: center;
     justify-content: space-between;
-
+    align-items: center;
     gap: 20px;
-
-    color: rgba(255,255,255,0.5);
-
-    font-size: 12px;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 13px;
 }
 
 .footer-bottom div {
@@ -813,10 +781,26 @@ img {
     gap: 20px;
 }
 
+.footer-bottom a {
+    color: rgba(255, 255, 255, 0.55);
+    transition: color 0.3s ease;
+}
+
 .footer-bottom a:hover {
+    color: #72d8d1;
+}
+
+/* =========================
+   FOOTER SOCIAL ICONS
+========================= */
+
+.footer .social-icon {
     color: #ffffff;
 }
 
+.footer .social-icon:hover {
+    color: #72d8d1;
+}
 
 /* =====================================================
    LIGHTBOX
@@ -939,7 +923,10 @@ img {
         grid-column: span 2;
     }
 
-    .footer-container {
+    /* FIX: this used to say ".footer-container" which does not
+       exist anywhere in the markup/CSS (the actual grid class is
+       ".footer-grid"), so this breakpoint never applied. */
+    .footer-grid {
         grid-template-columns:
             repeat(2, 1fr);
     }
@@ -1172,7 +1159,9 @@ img {
         justify-content: center;
     }
 
-    .footer-container {
+    /* FIX: same mismatch as above - was ".footer-container",
+       renamed to the class actually used in the markup. */
+    .footer-grid {
         grid-template-columns: 1fr;
 
         gap: 35px;
