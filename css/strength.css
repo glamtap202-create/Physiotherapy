@@ -1,0 +1,1676 @@
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    background: #f7faf9;
+    color: #183b36;
+    line-height: 1.7;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+.container {
+    width: min(1180px, 92%);
+    margin: auto;
+}
+
+
+/* =====================================================
+   TOP BAR
+===================================================== */
+
+.topbar {
+    background: #123c36;
+    color: white;
+    font-size: 13px;
+}
+
+.topbar-inner {
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.topbar-left,
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.topbar a {
+    transition: .3s ease;
+}
+
+.topbar a:hover {
+    opacity: .7;
+}
+
+.separator {
+    opacity: .4;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0,0,0,.06);
+}
+
+.nav-wrapper {
+    min-height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.brand-logo {
+    width: 145px;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav-link {
+    border: 0;
+    background: transparent;
+    color: #183b36;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 30px 0;
+    transition: .3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #5c9d89;
+}
+
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-dropdown-btn {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.chevron {
+    font-size: 12px;
+    transition: .3s;
+}
+
+.nav-dropdown:hover .chevron {
+    transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    width: 280px;
+    max-height: 450px;
+    overflow-y: auto;
+    background: white;
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 18px 45px rgba(0,0,0,.14);
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s ease;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.nav-dropdown-menu a {
+    display: block;
+    padding: 10px 14px;
+    border-radius: 7px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.nav-dropdown-menu a:hover,
+.nav-dropdown-menu a.active {
+    background: #edf6f2;
+    color: #4c907c;
+}
+
+.appointment-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    background: #5c9d89;
+    color: white;
+    padding: 13px 20px;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: .3s;
+}
+
+.appointment-btn:hover {
+    background: #397b68;
+    transform: translateY(-2px);
+}
+
+.appointment-btn span {
+    font-size: 20px;
+}
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+.menu-toggle {
+    display: none;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    width: 27px;
+    height: 3px;
+    background: #183b36;
+    display: block;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+.mobile-menu {
+    display: none;
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.therapy-hero {
+
+    min-height: 650px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    background: #0a312b;
+}
+
+
+/* =====================================================
+   OVERLAY
+===================================================== */
+
+.hero-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 75% 35%,
+            rgba(101, 179, 155, 0.15),
+            transparent 40%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   HERO CONTAINER
+===================================================== */
+
+.therapy-hero .hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    max-width: 1400px;
+
+    margin: auto;
+
+    padding: 65px 30px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 65px;
+}
+
+
+/* =====================================================
+   LEFT CONTENT
+===================================================== */
+
+.hero-left {
+
+    position: relative;
+
+    z-index: 3;
+}
+
+
+/* =====================================================
+   BREADCRUMB
+===================================================== */
+
+.breadcrumb {
+
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    color: rgba(255,255,255,0.8);
+
+    font-size: 14px;
+
+    margin-bottom: 50px;
+}
+
+
+.breadcrumb a {
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    transition: 0.3s ease;
+}
+
+
+.breadcrumb a:hover {
+
+    color: #a9ddcd;
+}
+
+
+/* =====================================================
+   HERO TEXT
+===================================================== */
+
+.hero-text {
+
+    max-width: 680px;
+}
+
+
+.hero-label {
+
+    display: inline-block;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    color: #a9ddcd;
+
+    margin-bottom: 15px;
+}
+
+
+.hero-text h1 {
+
+    color: #ffffff;
+
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-size: clamp(50px, 7vw, 82px);
+
+    line-height: 1.05;
+
+    margin: 0 0 25px;
+}
+
+
+.hero-text h1 span {
+
+    display: block;
+
+    color: #91d1bd;
+}
+
+
+.hero-text p {
+
+    color: rgba(255,255,255,0.86);
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    max-width: 620px;
+
+    margin-bottom: 32px;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.hero-buttons {
+
+    display: flex;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+
+.primary-btn,
+.secondary-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    min-height: 50px;
+
+    padding: 0 23px;
+
+    border-radius: 50px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition: 0.3s ease;
+}
+
+
+.primary-btn {
+
+    background: #6caf98;
+
+    color: #ffffff;
+}
+
+
+.primary-btn:hover {
+
+    background: #4f907b;
+
+    transform: translateY(-2px);
+}
+
+
+.secondary-btn {
+
+    border: 1px solid
+        rgba(255,255,255,0.55);
+
+    color: #ffffff;
+
+    background: transparent;
+}
+
+
+.secondary-btn:hover {
+
+    background: #ffffff;
+
+    color: #183b36;
+}
+
+
+/* =====================================================
+   RIGHT BANNER
+===================================================== */
+
+.hero-banner {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 480px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-radius: 28px;
+}
+
+
+/* =====================================================
+   BANNER IMAGE
+===================================================== */
+
+.hero-banner img {
+
+    width: 100%;
+
+    height: 100%;
+
+    /*
+       IMPORTANT:
+       contain use karne se
+       image crop nahi hogi.
+    */
+
+    object-fit: contain;
+
+    object-position: center;
+
+    display: block;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 25px 60px
+        rgba(0,0,0,0.28);
+}
+
+
+/* =====================================================
+   FLOATING INFO CARD
+===================================================== */
+
+.hero-info-card {
+
+    position: absolute;
+
+    left: 25px;
+
+    bottom: 25px;
+
+    min-width: 230px;
+
+    padding: 17px 22px;
+
+    background: #ffffff;
+
+    border-radius: 15px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,0.20);
+
+    z-index: 5;
+}
+
+
+.hero-info-card strong {
+
+    color: #245f51;
+
+    font-size: 16px;
+}
+
+
+.hero-info-card span {
+
+    color: #666666;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 992px) {
+
+    .therapy-hero {
+
+        min-height: auto;
+    }
+
+
+    .therapy-hero .hero-content {
+
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+
+        padding: 70px 30px;
+    }
+
+
+    .hero-left {
+
+        text-align: center;
+    }
+
+
+    .breadcrumb {
+
+        justify-content: center;
+
+        margin-bottom: 35px;
+    }
+
+
+    .hero-text {
+
+        margin: auto;
+    }
+
+
+    .hero-text p {
+
+        margin-left: auto;
+
+        margin-right: auto;
+    }
+
+
+    .hero-buttons {
+
+        justify-content: center;
+    }
+
+
+    .hero-banner {
+
+        width: 100%;
+
+        max-width: 700px;
+
+        height: 430px;
+
+        margin: auto;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .therapy-hero .hero-content {
+
+        padding: 55px 20px;
+
+        gap: 40px;
+    }
+
+
+    .breadcrumb {
+
+        font-size: 12px;
+
+        gap: 7px;
+
+        justify-content: center;
+    }
+
+
+    .hero-label {
+
+        font-size: 11px;
+
+        letter-spacing: 1.5px;
+    }
+
+
+    .hero-text h1 {
+
+        font-size: 48px;
+
+        line-height: 1;
+    }
+
+
+    .hero-text p {
+
+        font-size: 16px;
+
+        line-height: 1.6;
+    }
+
+
+    .hero-buttons {
+
+        width: 100%;
+
+        flex-direction: column;
+    }
+
+
+    .primary-btn,
+    .secondary-btn {
+
+        width: 100%;
+    }
+
+
+    .hero-banner {
+
+        height: 320px;
+
+        border-radius: 20px;
+    }
+
+
+    .hero-banner img {
+
+        width: 100%;
+
+        height: 100%;
+
+        object-fit: contain;
+
+        border-radius: 20px;
+    }
+
+
+    .hero-info-card {
+
+        left: 12px;
+
+        bottom: 12px;
+
+        min-width: 180px;
+
+        padding: 13px 16px;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 400px) {
+
+    .hero-text h1 {
+
+        font-size: 42px;
+    }
+
+
+    .hero-text p {
+
+        font-size: 15px;
+    }
+
+
+    .hero-banner {
+
+        height: 270px;
+    }
+
+
+    .hero-info-card {
+
+        min-width: 155px;
+    }
+
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.intro-section {
+    padding: 110px 0;
+    background: white;
+}
+
+.intro-grid {
+    display: grid;
+    grid-template-columns: .9fr 1.1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.intro-image {
+    position: relative;
+}
+
+.image-frame {
+    min-height: 510px;
+    overflow: hidden;
+    border-radius: 25px;
+    background: #dcece6;
+    position: relative;
+}
+
+.image-frame img {
+    width: 100%;
+    height: 510px;
+    object-fit: cover;
+}
+
+.image-fallback {
+    min-height: 510px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #286050;
+    background:
+        radial-gradient(circle at 30% 30%, #ffffff 0, #dceee7 45%, #bdd9cf 100%);
+}
+
+.image-fallback span {
+    letter-spacing: 5px;
+    font-size: 14px;
+}
+
+.image-fallback strong {
+    font-family: "Playfair Display", serif;
+    font-size: 52px;
+}
+
+.experience-card {
+    position: absolute;
+    right: -25px;
+    bottom: 35px;
+    background: #173f38;
+    color: white;
+    padding: 25px 30px;
+    border-radius: 18px;
+    box-shadow: 0 15px 40px rgba(0,0,0,.15);
+}
+
+.experience-card strong {
+    display: block;
+    color: #91d1bd;
+    font-size: 28px;
+    font-family: "Playfair Display", serif;
+}
+
+.experience-card span {
+    font-size: 13px;
+}
+
+.intro-content h2,
+.section-heading h2,
+.benefits-header h2,
+.faq-heading h2,
+.cta-content h2 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(36px, 4vw, 53px);
+    line-height: 1.15;
+    color: #173e37;
+    margin-bottom: 22px;
+}
+
+.intro-content h2 span,
+.section-heading h2 span,
+.benefits-header h2 span,
+.faq-heading h2 span,
+.cta-content h2 span {
+    color: #65a58f;
+}
+
+.intro-content > p {
+    color: #60736f;
+    margin-bottom: 18px;
+}
+
+.intro-points {
+    margin-top: 30px;
+    display: grid;
+    gap: 20px;
+}
+
+.intro-point {
+    display: flex;
+    gap: 15px;
+}
+
+.point-icon {
+    flex: 0 0 35px;
+    height: 35px;
+    display: grid;
+    place-items: center;
+    background: #e5f3ee;
+    color: #4c927d;
+    border-radius: 50%;
+    font-weight: 800;
+}
+
+.intro-point h3 {
+    margin-bottom: 3px;
+    color: #234c44;
+}
+
+.intro-point p {
+    color: #71817d;
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.content-section {
+    padding: 105px 0;
+    background: #f3f8f6;
+}
+
+.section-heading {
+    max-width: 760px;
+    margin-bottom: 55px;
+}
+
+.section-heading p {
+    color: #697b76;
+    font-size: 16px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.info-card {
+    background: white;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 10px 35px rgba(25,70,60,.07);
+    transition: .3s;
+}
+
+.info-card:hover {
+    transform: translateY(-7px);
+}
+
+.info-number {
+    font-family: "Playfair Display", serif;
+    color: #70ae99;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.info-card h3 {
+    color: #1d463e;
+    font-size: 21px;
+    margin-bottom: 12px;
+}
+
+.info-card p {
+    color: #70807c;
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   TRAINING AREAS
+===================================================== */
+
+.techniques-section {
+    padding: 110px 0;
+    background: white;
+}
+
+.section-heading.center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.techniques-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.technique-card {
+    border: 1px solid #e0ece7;
+    border-radius: 18px;
+    padding: 32px;
+    background: #fbfdfc;
+    transition: .3s;
+}
+
+.technique-card:hover {
+    background: #eff8f4;
+    transform: translateY(-5px);
+    border-color: #b8d9cd;
+}
+
+.technique-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #dceee7;
+    color: #43866f;
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    margin-bottom: 25px;
+}
+
+.technique-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.technique-card p {
+    color: #70807c;
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   BENEFITS
+===================================================== */
+
+.benefits-section {
+    padding: 105px 0;
+    background: #edf6f2;
+}
+
+.benefits-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    align-items: end;
+    margin-bottom: 50px;
+}
+
+.benefits-header > p {
+    max-width: 470px;
+    color: #687a75;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.benefit-item {
+    background: white;
+    border-radius: 15px;
+    padding: 28px;
+    display: flex;
+    gap: 20px;
+    box-shadow: 0 8px 30px rgba(25,70,60,.05);
+}
+
+.benefit-icon {
+    color: #579982;
+    font-weight: 800;
+    font-size: 17px;
+}
+
+.benefit-item h3 {
+    margin-bottom: 5px;
+}
+
+.benefit-item p {
+    color: #71817d;
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   PROCESS
+===================================================== */
+
+.process-section {
+    padding: 110px 0;
+    background: white;
+}
+
+.process-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+    align-items: center;
+    gap: 15px;
+}
+
+.process-card {
+    text-align: center;
+}
+
+.process-circle {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: #173f38;
+    color: white;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 20px;
+    font-weight: 800;
+}
+
+.process-card h3 {
+    margin-bottom: 8px;
+}
+
+.process-card p {
+    color: #71817d;
+    font-size: 14px;
+}
+
+.process-line {
+    height: 1px;
+    background: #b8d4ca;
+    min-width: 45px;
+}
+
+
+/* =====================================================
+   FAQ
+===================================================== */
+
+.faq-section {
+    padding: 110px 0;
+    background: #f5f9f7;
+}
+
+.faq-layout {
+    display: grid;
+    grid-template-columns: .75fr 1.25fr;
+    gap: 70px;
+}
+
+.faq-heading p {
+    color: #6e7e7a;
+    margin-bottom: 25px;
+}
+
+.faq-contact-btn {
+    display: inline-flex;
+    gap: 12px;
+    align-items: center;
+    background: #5d9d89;
+    color: white;
+    padding: 13px 21px;
+    border-radius: 50px;
+    font-weight: 700;
+}
+
+.faq-list {
+    display: grid;
+    gap: 12px;
+}
+
+.faq-item {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.faq-question {
+    width: 100%;
+    padding: 22px;
+    border: 0;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    cursor: pointer;
+    color: #234c44;
+    font-weight: 700;
+}
+
+.faq-plus {
+    font-size: 25px;
+    color: #5b9b87;
+    transition: .3s;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .35s ease;
+}
+
+.faq-answer p {
+    padding: 0 22px 22px;
+    color: #70807c;
+    font-size: 14px;
+}
+
+.faq-item.active .faq-plus {
+    transform: rotate(45deg);
+}
+
+.faq-item.active .faq-answer {
+    max-height: 250px;
+}
+
+
+/* =====================================================
+   CTA
+===================================================== */
+
+.cta-section {
+    padding: 90px 0;
+    background: white;
+}
+
+.cta-box {
+    background: #173f38;
+    color: white;
+    border-radius: 25px;
+    padding: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+}
+
+.cta-content h2 {
+    color: white;
+    margin-bottom: 15px;
+}
+
+.cta-content p {
+    color: rgba(255,255,255,.72);
+    max-width: 650px;
+}
+
+.cta-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+}
+
+.cta-primary,
+.cta-secondary {
+    padding: 14px 21px;
+    border-radius: 50px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cta-primary {
+    background: #6caf98;
+    color: white;
+}
+
+.cta-secondary {
+    border: 1px solid rgba(255,255,255,.35);
+    color: white;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+    background: #102f2b;
+    color: white;
+    padding: 75px 0 25px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1.2fr 1fr;
+    gap: 45px;
+    padding-bottom: 50px;
+}
+
+.footer-brand img {
+    width: 140px;
+    margin-bottom: 20px;
+}
+
+.footer-brand p,
+.footer-column p {
+    color: rgba(255,255,255,.62);
+    font-size: 14px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-column h3 {
+    margin-bottom: 10px;
+    color: #91d1bd;
+}
+
+.footer-column a {
+    color: rgba(255,255,255,.68);
+    font-size: 14px;
+    transition: .3s;
+}
+
+.footer-column a:hover {
+    color: white;
+    transform: translateX(3px);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,.12);
+    padding-top: 22px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    color: rgba(255,255,255,.55);
+    font-size: 13px;
+}
+
+.footer-bottom div {
+    display: flex;
+    gap: 20px;
+}
+
+
+/* =====================================================
+   SCROLL ANIMATION
+===================================================== */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: .7s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1050px) {
+
+    .nav {
+        gap: 16px;
+    }
+
+    .appointment-btn {
+        padding: 11px 15px;
+        font-size: 14px;
+    }
+
+    .intro-grid {
+        gap: 45px;
+    }
+
+    .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 35px;
+    }
+
+    .process-line {
+        display: none;
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .topbar-left {
+        display: none;
+    }
+
+    .topbar-inner {
+        justify-content: center;
+    }
+
+    .topbar-right {
+        font-size: 12px;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .appointment-btn {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .mobile-menu {
+        position: fixed;
+        top: 124px;
+        left: 0;
+        right: 0;
+        background: white;
+        z-index: 999;
+        padding: 18px 6%;
+        box-shadow: 0 20px 30px rgba(0,0,0,.1);
+        max-height: calc(100vh - 124px);
+        overflow-y: auto;
+    }
+
+    .mobile-menu.open {
+        display: block;
+    }
+
+    .mobile-menu > a,
+    .mobile-services-btn {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 5px;
+        border-bottom: 1px solid #e8eeeb;
+        color: #183b36;
+        font-weight: 600;
+        background: none;
+        border-left: 0;
+        border-right: 0;
+        border-top: 0;
+        cursor: pointer;
+    }
+
+    .mobile-services {
+        display: none;
+        padding-left: 15px;
+    }
+
+    .mobile-services.open {
+        display: block;
+    }
+
+    .mobile-services a {
+        display: block;
+        padding: 12px 5px;
+        font-size: 14px;
+        border-bottom: 1px solid #edf1ef;
+    }
+
+    .mobile-services a.active {
+        color: #579982;
+    }
+
+    .mobile-appointment {
+        background: #5d9d89 !important;
+        color: white !important;
+        padding: 13px 18px !important;
+        border-radius: 30px;
+        margin-top: 15px;
+        justify-content: center !important;
+    }
+
+    .therapy-hero {
+        min-height: 580px;
+    }
+
+    .breadcrumb {
+        margin-bottom: 35px;
+        flex-wrap: wrap;
+    }
+
+    .hero-text h1 {
+        font-size: 52px;
+    }
+
+    .hero-text p {
+        font-size: 16px;
+    }
+
+    .intro-section,
+    .content-section,
+    .techniques-section,
+    .benefits-section,
+    .process-section,
+    .faq-section {
+        padding: 75px 0;
+    }
+
+    .intro-grid,
+    .faq-layout {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .image-frame,
+    .image-frame img {
+        min-height: 390px;
+        height: 390px;
+    }
+
+    .experience-card {
+        right: 15px;
+        bottom: 20px;
+    }
+
+    .info-grid,
+    .techniques-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .benefits-header {
+        display: block;
+    }
+
+    .benefits-header > p {
+        margin-top: 20px;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-box {
+        padding: 40px 30px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 35px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 520px) {
+
+    .topbar-right a:first-child {
+        display: none;
+    }
+
+    .brand-logo {
+        width: 120px;
+    }
+
+    .nav-wrapper {
+        min-height: 72px;
+    }
+
+    .mobile-menu {
+        top: 114px;
+        max-height: calc(100vh - 114px);
+    }
+
+    .therapy-hero {
+        min-height: 550px;
+    }
+
+    .hero-text h1 {
+        font-size: 43px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .intro-section,
+    .content-section,
+    .techniques-section,
+    .benefits-section,
+    .process-section,
+    .faq-section {
+        padding: 60px 0;
+    }
+
+    .info-grid,
+    .techniques-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .intro-content h2,
+    .section-heading h2,
+    .benefits-header h2,
+    .faq-heading h2,
+    .cta-content h2 {
+        font-size: 35px;
+    }
+
+    .image-frame,
+    .image-frame img {
+        min-height: 330px;
+        height: 330px;
+    }
+
+    .experience-card {
+        padding: 18px 20px;
+    }
+
+    .experience-card strong {
+        font-size: 22px;
+    }
+
+    .process-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-box {
+        padding: 35px 22px;
+    }
+
+    .cta-actions {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .cta-primary,
+    .cta-secondary {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom div {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+}

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms and Conditions - Healing Vibes Clinic</title>
+    <style>
+        /* Base styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: #333;
+            background-color: #fff;
+            line-height: 1.6;
+        }
+
+        /* Top Notification Bar */
+        .top-bar {
+            background-color: #0b4038;
+            color: #fff;
+            padding: 10px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .top-bar-left, .top-bar-right {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .top-bar a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .nav-logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #0b4038;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #76aaa3;
+        }
+
+        /* Hero / Page Header Section */
+        .hero-banner {
+            background-color: #eaf2f1;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero-banner h1 {
+            font-size: 48px;
+            color: #0b4038;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .breadcrumb {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .breadcrumb a {
+            color: #0b4038;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: #76aaa3;
+            text-decoration: underline;
+        }
+
+        /* Main Content Section */
+        .content-container {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .content-container h2 {
+            color: #0b4038;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .content-container p {
+            margin-bottom: 15px;
+            font-size: 16px;
+            color: #444;
+        }
+
+        .content-container ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .content-container li {
+            margin-bottom: 8px;
+            color: #444;
+        }
+
+        /* Floating Contact Buttons */
+        .floating-buttons {
+            position: fixed;
+            right: 20px;
+            bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 1000;
+        }
+
+        .float-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            font-size: 22px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .float-call { background-color: #3b82f6; }
+        .float-whatsapp { background-color: #25d366; }
+
+        /* Existing Footer CSS */
+        .footer {
+            width: 100%;
+            background: #0b4038;
+            color: #fff;
+            padding: 75px 8% 45px;
+            box-sizing: border-box;
+        }
+
+        .footer-container {
+            max-width: 1450px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1.3fr;
+            gap: 80px;
+        }
+
+        .footer-brand { max-width: 430px; }
+        .footer-logo { margin: 0 0 55px; font-size: 46px; line-height: 1.05; font-weight: 700; color: #fff; }
+        .footer-brand p { margin: 0; max-width: 400px; font-size: 18px; line-height: 1.9; color: #fff; }
+        .footer-social { display: flex; align-items: center; gap: 25px; margin-top: 32px; }
+        .footer-social a { width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; font-size: 25px; font-weight: 600; transition: 0.3s ease; }
+        .footer-social a:hover { color: #76aaa3; transform: translateY(-3px); }
+        .footer-column h3 { margin: 0 0 38px; font-size: 27px; font-weight: 700; color: #fff; }
+        .footer-column a { display: block; width: fit-content; margin-bottom: 28px; color: #fff; text-decoration: none; font-size: 18px; line-height: 1.5; transition: 0.3s ease; }
+        .footer-column a:hover { color: #76aaa3; transform: translateX(4px); }
+        .footer-email { display: flex !important; align-items: center; gap: 12px; white-space: nowrap; }
+        .footer-email span { overflow-wrap: anywhere; }
+        .footer-bottom { max-width: 1450px; margin: 55px auto 0; padding-top: 52px; border-top: 1px solid rgba(255, 255, 255, 0.18); display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+        .footer-bottom p { margin: 0; font-size: 18px; color: #fff; }
+        .footer-links { display: flex; align-items: center; gap: 45px; }
+        .footer-links a { color: #fff; text-decoration: none; font-size: 17px; transition: 0.3s ease; }
+        .footer-links a:hover { color: #76aaa3; }
+
+        /* Responsive Styles */
+        @media (max-width: 1000px) {
+            .footer { padding: 60px 6% 40px; }
+            .footer-container { grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; }
+            .footer-logo { font-size: 38px; margin-bottom: 40px; }
+            .footer-brand p, .footer-column a { font-size: 16px; }
+            .footer-column h3 { font-size: 23px; }
+            .footer-bottom { flex-direction: column; align-items: flex-start; }
+            .footer-links { gap: 25px; flex-wrap: wrap; }
+        }
+
+        @media (max-width: 700px) {
+            .hero-banner h1 { font-size: 32px; }
+            .nav-links { display: none; }
+            .footer { padding: 50px 25px 30px; }
+            .footer-container { grid-template-columns: 1fr; gap: 45px; }
+            .footer-brand { max-width: 100%; }
+            .footer-logo { font-size: 34px; margin-bottom: 30px; }
+            .footer-brand p { font-size: 16px; line-height: 1.7; }
+            .footer-column h3 { font-size: 23px; margin-bottom: 25px; }
+            .footer-column a { font-size: 16px; margin-bottom: 18px; }
+            .footer-bottom { margin-top: 40px; padding-top: 30px; gap: 25px; }
+            .footer-bottom p { font-size: 14px; line-height: 1.5; }
+            .footer-links { display: flex; flex-direction: column; align-items: flex-start; gap: 15px; }
+            .footer-links a { font-size: 14px; }
+            .footer-email { white-space: normal; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <span>📞 Call</span>
+            <span>💬 Whatsapp</span>
+        </div>
+        <div class="top-bar-right">
+            <a href="#">f</a>
+            <a href="#">𝕏</a>
+            <a href="#">in</a>
+            <a href="#">◎</a>
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-logo">Healing Vibes Clinic</div>
+        <ul class="nav-links">
+            <li><a href="../home.html">Home</a></li>
+            <li><a href="../about.html">About Us</a></li>
+            <li><a href="../services.html">Services</a></li>
+            <li><a href="../faq.html">FAQ</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO BANNER -->
+    <section class="hero-banner">
+        <h1>Terms and Conditions</h1>
+        <div class="breadcrumb">
+            <a href="../home.html">Home</a> / Terms And Conditions
+        </div>
+    </section>
+
+    <!-- MAIN TERMS CONTENT -->
+    <main class="content-container">
+        <h2>1. Introduction</h2>
+        <p>Welcome to Healing Vibes Clinic. By accessing our website or using our physiotherapy services, you agree to comply with and be bound by the following terms and conditions.</p>
+
+        <h2>2. Medical Disclaimer</h2>
+        <p>The content provided on this website is for informational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of qualified healthcare providers with any questions regarding medical conditions.</p>
+
+        <h2>3. Appointments & Cancellations</h2>
+        <p>Appointments can be booked online or via phone. If you need to cancel or reschedule, please inform us at least 24 hours in advance to avoid cancellation charges.</p>
+
+        <h2>4. Privacy & Personal Data</h2>
+        <p>We respect your privacy. Any personal information collected during appointment booking or treatment will be processed according to our Privacy Policy.</p>
+    </main>
+
+    <!-- FLOATING CONTACT BUTTONS -->
+    <div class="floating-buttons">
+        <a href="tel:+" class="float-btn float-call" aria-label="Call">📞</a>
+        <a href="https://wa.me/" class="float-btn float-whatsapp" aria-label="WhatsApp">💬</a>
+    </div>
+
+    <!-- FOOTER SECTION -->
+    <footer class="footer">
+        <div class="footer-container">
+
+            <!-- LEFT -->
+            <div class="footer-brand">
+                <h2 class="footer-logo">Healing Vibes Clinic</h2>
+                <p>Personalized physiotherapy and rehabilitation care focused on pain relief, better mobility, and healthier living.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook">f</a>
+                    <a href="#" aria-label="Twitter">𝕏</a>
+                    <a href="#" aria-label="LinkedIn">in</a>
+                    <a href="#" aria-label="Instagram">◎</a>
+                </div>
+            </div>
+
+            <!-- MORE SERVICES -->
+            <div class="footer-column">
+                <h3>More Services</h3>
+                <a href="../about.html">About Us</a>
+                <a href="../blog.html">Blog</a>
+                <a href="../services.html">Physiotherapy Services</a>
+            </div>
+
+            <!-- CONTACT -->
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <a href="mailto:Healingvibesclinic2018@gmail.com" class="footer-email">
+                    ✉ <span>Healingvibesclinic2018@gmail.com</span>
+                </a>
+            </div>
+
+        </div>
+
+        <!-- BOTTOM -->
+        <div class="footer-bottom">
+            <p>Copyright 2026 Healing Vibes Clinic. All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="terms.html">Terms And Conditions</a>
+                <a href="../faq.html">FAQ</a>
+                <a href="privacy.html">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

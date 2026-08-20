@@ -1,0 +1,1531 @@
+:root {
+  --forest:       #0d7377;   /* primary buttons, links, active states */
+  --forest-dark:  #0a2e2e;   /* topbar, feature-strip background */
+  --sage:         #14a8a3;   /* process icons, secondary accents */
+  --lime:         #6fd0c5;   /* soft highlights, hover states */
+  --ink:          #1a1a1a;   /* body/nav text */
+  --black:        #111111;
+  --text:         #555555;
+  --white:        #ffffff;
+  --mist:         rgba(255, 255, 255, 0.85);
+  --radius-pill:  999px;
+  --container:    1280px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: var(--ink);
+  background: var(--white);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+/* =========================================================
+   ICONS (SVG Masks)
+   ========================================================= */
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  background: currentColor;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
+.icon-call {
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M6.6 10.8c1.4 2.7 3.6 4.9 6.3 6.3l2.1-2.1c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.2 1L6.6 10.8z'/></svg>");
+  mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M6.6 10.8c1.4 2.7 3.6 4.9 6.3 6.3l2.1-2.1c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.2 1L6.6 10.8z'/></svg>");
+}
+
+.icon-whatsapp {
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8 1-.1.1-.3.2-.5.1-.6-.3-1.2-.7-1.8-1.2-.5-.4-.8-1-1-1.2-.1-.2 0-.4.1-.5l.4-.5c.1-.2.1-.3.2-.5.1-.2 0-.4 0-.5-.1-.1-.5-1.3-.7-1.8-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s1 2.6 1.1 2.8c.1.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.4-.3z'/></svg>");
+  mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8 1-.1.1-.3.2-.5.1-.6-.3-1.2-.7-1.8-1.2-.5-.4-.8-1-1-1.2-.1-.2 0-.4.1-.5l.4-.5c.1-.2.1-.3.2-.5.1-.2 0-.4 0-.5-.1-.1-.5-1.3-.7-1.8-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s1 2.6 1.1 2.8c.1.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.4-.3z'/></svg>");
+}
+
+.icon-pin {
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z'/></svg>");
+  mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z'/></svg>");
+}
+
+.icon-fb {
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.2-1.5 1.6-1.5H17V3.7C16.7 3.6 15.7 3.5 14.5 3.5c-2.4 0-4 1.5-4 4.2v2.2H8v3.1h2.5V21h3z'/></svg>");
+  mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.2-1.5 1.6-1.5H17V3.7C16.7 3.6 15.7 3.5 14.5 3.5c-2.4 0-4 1.5-4 4.2v2.2H8v3.1h2.5V21h3z'/></svg>");
+}
+
+.icon-tw {
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M22 5.9c-.7.3-1.5.6-2.3.7.8-.5 1.4-1.3 1.7-2.3-.8.5-1.7.8-2.6 1a4.1 4.1 0 0 0-7 3.7A11.6 11.6 0 0 1 3.4 4.6a4.1 4.1 0 0 0 1.3 5.5c-.6 0-1.3-.2-1.8-.5v.1c0 2 1.4 3.6 3.3 4a4.1 4.1 0 0 1-1.8.1c.5 1.6 2 2.8 3.8 2.8A8.2 8.2 0 0 1 2 18.6a11.6 11.6 0 0 0 6.3 1.8c7.5 0 11.7-6.3 11.7-11.7v-.5c.8-.6 1.5-1.3 2-2.3z'/></svg>");
+  mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M22 5.9c-.7.3-1.5.6-2.3.7.8-.5 1.4-1.3 1.7-2.3-.8.5-1.7.8-2.6 1a4.1 4.1 0 0 0-7 3.7A11.6 11.6 0 0 1 3.4 4.6a4.1 4.1 0 0 0 1.3 5.5c-.6 0-1.3-.2-1.8-.5v.1c0 2 1.4 3.6 3.3 4a4.1 4.1 0 0 1-1.8.1c.5 1.6 2 2.8 3.8 2.8A8.2 8.2 0 0 1 2 18.6a11.6 11.6 0 0 0 6.3 1.8c7.5 0 11.7-6.3 11.7-11.7v-.5c.8-.6 1.5-1.3 2-2.3z'/></svg>");
+}
+
+.icon-li {
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M6.9 8.4H3.6V20h3.3V8.4zM5.3 3.5A1.9 1.9 0 1 0 5.3 7.3a1.9 1.9 0 0 0 0-3.8zM20.4 20h-3.3v-6.3c0-1.5-.5-2.5-1.9-2.5-1 0-1.6.7-1.9 1.4-.1.2-.1.6-.1.9V20h-3.3s.1-10.6 0-11.7h3.3v1.7c.4-.7 1.2-1.7 3-1.7 2.2 0 3.8 1.4 3.8 4.5V20z'/></svg>");
+  mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M6.9 8.4H3.6V20h3.3V8.4zM5.3 3.5A1.9 1.9 0 1 0 5.3 7.3a1.9 1.9 0 0 0 0-3.8zM20.4 20h-3.3v-6.3c0-1.5-.5-2.5-1.9-2.5-1 0-1.6.7-1.9 1.4-.1.2-.1.6-.1.9V20h-3.3s.1-10.6 0-11.7h3.3v1.7c.4-.7 1.2-1.7 3-1.7 2.2 0 3.8 1.4 3.8 4.5V20z'/></svg>");
+}
+
+.icon-ig {
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 2.2c2.7 0 3 0 4.1.1 1 0 1.6.2 2 .4.5.2.9.4 1.3.8.4.4.6.8.8 1.3.2.4.3 1 .4 2 .1 1.1.1 1.4.1 4.1s0 3-.1 4.1c0 1-.2 1.6-.4 2-.2.5-.4.9-.8 1.3-.4.4-.8.6-1.3.8-.4.2-1 .3-2 .4-1.1.1-1.4.1-4.1.1s-3 0-4.1-.1c-1 0-1.6-.2-2-.4a3.6 3.6 0 0 1-1.3-.8 3.6 3.6 0 0 1-.8-1.3c-.2-.4-.3-1-.4-2-.1-1.1-.1-1.4-.1-4.1s0-3 .1-4.1c0-1 .2-1.6.4-2 .2-.5.4-.9.8-1.3.4-.4.8-.6 1.3-.8.4-.2 1-.3 2-.4C9 2.2 9.3 2.2 12 2.2zm0 1.8c-2.7 0-3 0-4 .1-.8 0-1.3.2-1.6.3-.4.1-.7.3-1 .6-.3.3-.5.6-.6 1-.1.3-.3.8-.3 1.6-.1 1-.1 1.3-.1 4s0 3 .1 4c0 .8.2 1.3.3 1.6.1.4.3.7.6 1 .3.3.6.5 1 .6.3.1.8.3 1.6.3 1 .1 1.3.1 4 .1s3 0 4-.1c.8 0 1.3-.2 1.6-.3.4-.1.7-.3 1-.6.3-.3.5-.6.6-1 .1-.3.3-.8.3-1.6.1-1 .1-1.3.1-4s0-3-.1-4c0-.8-.2-1.3-.3-1.6a2.6 2.6 0 0 0-.6-1 2.6 2.6 0 0 0-1-.6c-.3-.1-.8-.3-1.6-.3-1-.1-1.3-.1-4-.1zm0 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zm0 1.8a2.7 2.7 0 1 0 0 5.4 2.7 2.7 0 0 0 0-5.4zm4.7-2a1 1 0 1 1 0 2.1 1 1 0 0 1 0-2.1z'/></svg>");
+  mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 2.2c2.7 0 3 0 4.1.1 1 0 1.6.2 2 .4.5.2.9.4 1.3.8.4.4.6.8.8 1.3.2.4.3 1 .4 2 .1 1.1.1 1.4.1 4.1s0 3-.1 4.1c0 1-.2 1.6-.4 2-.2.5-.4.9-.8 1.3-.4.4-.8.6-1.3.8-.4.2-1 .3-2 .4-1.1.1-1.4.1-4.1.1s-3 0-4.1-.1c-1 0-1.6-.2-2-.4a3.6 3.6 0 0 1-1.3-.8 3.6 3.6 0 0 1-.8-1.3c-.2-.4-.3-1-.4-2-.1-1.1-.1-1.4-.1-4.1s0-3 .1-4.1c0-1 .2-1.6.4-2 .2-.5.4-.9.8-1.3.4-.4.8-.6 1.3-.8.4-.2 1-.3 2-.4C9 2.2 9.3 2.2 12 2.2zm0 1.8c-2.7 0-3 0-4 .1-.8 0-1.3.2-1.6.3-.4.1-.7.3-1 .6-.3.3-.5.6-.6 1-.1.3-.3.8-.3 1.6-.1 1-.1 1.3-.1 4s0 3 .1 4c0 .8.2 1.3.3 1.6.1.4.3.7.6 1 .3.3.6.5 1 .6.3.1.8.3 1.6.3 1 .1 1.3.1 4 .1s3 0 4-.1c.8 0 1.3-.2 1.6-.3.4-.1.7-.3 1-.6.3-.3.5-.6.6-1 .1-.3.3-.8.3-1.6.1-1 .1-1.3.1-4s0-3-.1-4c0-.8-.2-1.3-.3-1.6a2.6 2.6 0 0 0-.6-1 2.6 2.6 0 0 0-1-.6c-.3-.1-.8-.3-1.6-.3-1-.1-1.3-.1-4-.1zm0 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zm0 1.8a2.7 2.7 0 1 0 0 5.4 2.7 2.7 0 0 0 0-5.4zm4.7-2a1 1 0 1 1 0 2.1 1 1 0 0 1 0-2.1z'/></svg>");
+}
+
+/* =========================================================
+   TOP UTILITY BAR
+   ========================================================= */
+.topbar {
+  background: var(--forest-dark);
+  color: var(--white);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 10px 20px;
+  font-size: 0.85rem;
+}
+
+.topbar__left {
+  display: flex;
+  gap: 18px;
+  justify-self: start;
+}
+
+.topbar__center {
+  justify-self: center;
+}
+
+.topbar__right {
+  display: flex;
+  gap: 14px;
+  justify-self: end;
+}
+
+.topbar__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  line-height: 1;
+  opacity: 0.95;
+}
+
+.topbar__link:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.social-icon {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.2s ease;
+}
+
+.social-icon:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* =========================================================
+   MAIN NAVBAR
+   ========================================================= */
+.nav-wrapper {
+    width: 100%;
+    height: 145px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 28px;
+
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(10, 46, 46, 0.06);
+    position: relative;
+    z-index: 60;
+}
+
+/* LOGO */
+.brand {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+
+    margin-right: 50px;
+}
+
+.brand__logo {
+    width: 165px;
+    height: 86px;
+
+    object-fit: contain;
+    display: block;
+
+    margin: 0;
+    padding: 0;
+
+    background: transparent;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 6px;
+}
+
+.nav-toggle span {
+  width: 24px;
+  height: 2px;
+  background: var(--forest);
+  border-radius: 2px;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 30px;
+
+    flex: 1;
+}
+
+.nav__link {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 0;
+}
+
+.nav__link.is-active,
+.nav__link:hover {
+  color: var(--forest);
+  font-weight: 600;
+}
+
+.chevron {
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+}
+
+.nav__dropdown {
+  position: relative;
+}
+.nav__dropdown.is-open .nav__dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.nav__dropdown-menu {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 0;
+  background: var(--white);
+  box-shadow: 0 20px 45px rgba(10, 46, 46, 0.18);
+  border-radius: 12px;
+  padding: 8px;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+  z-index: 50;
+}
+
+.nav__dropdown:hover .nav__dropdown-menu,
+.nav__dropdown:focus-within .nav__dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.nav__dropdown-menu a {
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.nav__dropdown-menu a:hover {
+  background: #f2f6f2;
+  color: var(--forest);
+}
+
+.appointment-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 12px 20px;
+    background: #10392d;
+    color: #ffffff;
+
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+
+    border-radius: 25px;
+    border: 1px solid #0d2e25;
+    box-shadow: 0 10px 24px rgba(13, 115, 119, 0.3);
+
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.appointment-btn:hover {
+    color: #ffffff;
+    box-shadow: 0 14px 32px rgba(13, 115, 119, 0.42);
+    transform: translateY(-2px);
+}
+
+.appointment-arrow {
+    font-size: 18px;
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+.appointment-btn:hover .appointment-arrow {
+    transform: translateX(4px);
+}
+
+/* ================= HERO ================= */
+/* =================================================
+   THERAPEUTIC EXERCISE HERO
+================================================= */
+
+.extherapy-hero {
+    position: relative;
+    min-height: 680px;
+
+    background: #123f3f;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+}
+
+
+/* Main Container */
+
+.extherapy-container {
+    width: 100%;
+    max-width: 1400px;
+
+    margin: 0 auto;
+
+    padding: 80px 30px;
+}
+
+
+/* Hero Grid */
+
+.extherapy-hero-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 70px;
+}
+
+
+/* =================================================
+   LEFT CONTENT
+================================================= */
+
+.extherapy-hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* Label */
+
+.extherapy-label {
+    display: inline-block;
+
+    margin-bottom: 22px;
+
+    color: #65d4ca;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+/* Heading */
+
+.extherapy-hero-content h1 {
+    margin: 0 0 25px;
+
+    color: #ffffff;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(60px, 6vw, 92px);
+
+    line-height: 0.98;
+
+    font-weight: 500;
+}
+
+.extherapy-hero-content h1 span {
+    display: block;
+
+    color: #68d5cb;
+}
+
+
+/* Paragraph */
+
+.extherapy-hero-content p {
+    max-width: 650px;
+
+    margin-bottom: 35px;
+
+    color: #ffffff;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+}
+
+
+/* =================================================
+   BUTTON
+================================================= */
+
+.extherapy-hero-buttons {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+.extherapy-outline-btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 15px;
+
+    min-height: 56px;
+
+    padding: 0 30px;
+
+    border: 1px solid rgba(255, 255, 255, 0.5);
+
+    border-radius: 40px;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    transition: all 0.3s ease;
+}
+
+
+.extherapy-outline-btn span {
+    font-size: 21px;
+}
+
+
+.extherapy-outline-btn:hover {
+    background: #ffffff;
+
+    color: #123f3f;
+
+    transform: translateY(-3px);
+}
+
+
+/* =================================================
+   RIGHT BANNER
+================================================= */
+
+.extherapy-hero-banner {
+    position: relative;
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+/* Banner Image */
+
+.extherapy-hero-banner img {
+    width: 100%;
+
+    max-width: 620px;
+
+    height: 500px;
+
+    object-fit:cover;
+
+    display: block;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.30);
+
+    animation: extherapyBannerFloat 5s ease-in-out infinite;
+}
+
+
+/* Banner Animation */
+
+@keyframes extherapyBannerFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+}
+
+
+/* =================================================
+   FLOATING CARD
+================================================= */
+
+.extherapy-floating-card {
+    position: absolute;
+
+    right: -20px;
+
+    bottom: 30px;
+
+    min-width: 180px;
+
+    padding: 18px 22px;
+
+    background: #ffffff;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.20);
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+.extherapy-floating-card strong {
+    color: #123f3f;
+
+    font-size: 16px;
+}
+
+
+.extherapy-floating-card span {
+    color: #666666;
+
+    font-size: 13px;
+}
+
+
+/* =================================================
+   TABLET
+================================================= */
+
+@media (max-width: 992px) {
+
+    .extherapy-hero {
+        min-height: auto;
+    }
+
+    .extherapy-hero-grid {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+
+    .extherapy-hero-content {
+        text-align: center;
+    }
+
+    .extherapy-hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .extherapy-hero-buttons {
+        justify-content: center;
+    }
+
+    .extherapy-hero-banner img {
+        max-width: 700px;
+
+        height: 430px;
+    }
+
+}
+
+
+/* =================================================
+   MOBILE
+================================================= */
+
+@media (max-width: 600px) {
+
+    .extherapy-container {
+        padding: 55px 20px;
+    }
+
+    .extherapy-hero-grid {
+        gap: 40px;
+    }
+
+    .extherapy-label {
+        font-size: 12px;
+
+        letter-spacing: 1.5px;
+    }
+
+    .extherapy-hero-content h1 {
+        font-size: 52px;
+
+        line-height: 0.98;
+    }
+
+    .extherapy-hero-content p {
+        font-size: 16px;
+
+        line-height: 1.6;
+    }
+
+    .extherapy-hero-buttons {
+        width: 100%;
+    }
+
+    .extherapy-outline-btn {
+        width: 100%;
+    }
+
+    .extherapy-hero-banner img {
+        width: 100%;
+
+        height: 310px;
+
+        border-radius: 20px;
+    }
+
+    .extherapy-floating-card {
+        right: 10px;
+
+        bottom: 15px;
+
+        min-width: 150px;
+
+        padding: 14px 17px;
+    }
+
+}
+
+
+/* =================================================
+   SMALL MOBILE
+================================================= */
+
+@media (max-width: 400px) {
+
+    .extherapy-hero-content h1 {
+        font-size: 44px;
+    }
+
+    .extherapy-hero-content p {
+        font-size: 15px;
+    }
+
+    .extherapy-hero-banner img {
+        height: 260px;
+    }
+
+    .extherapy-floating-card {
+        min-width: 135px;
+    }
+
+}
+/* ================= HERO ART ================= */
+
+.extherapy-hero-art {
+    height: 540px;
+    position: relative;
+    display: grid;
+    place-items: center;
+}
+
+.extherapy-orbit {
+    width: 400px;
+    height: 400px;
+    border: 1px solid rgba(20, 168, 163, 0.55);
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: 0 0 90px rgba(20, 168, 163, 0.25) inset, 0 0 60px rgba(20, 168, 163, 0.15);
+}
+
+.extherapy-orbit::before,
+.extherapy-orbit::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(13, 115, 119, 0.7);
+}
+
+.extherapy-orbit::before {
+    inset: 45px;
+}
+
+.extherapy-orbit::after {
+    inset: 90px;
+}
+
+.body-card {
+    position: relative;
+    width: 240px;
+    height: 430px;
+    border-radius: 120px 120px 70px 70px;
+    background: linear-gradient(160deg, #14a8a3, #0d7377 45%, #0a2e2e);
+    border: 1px solid #14a8a3;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45), 0 0 50px rgba(20, 168, 163, 0.25);
+}
+
+.body-head {
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    background: #0d7377;
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 25px rgba(20, 168, 163, 0.5);
+}
+
+.body-line {
+    width: 2px;
+    height: 265px;
+    background: #14a8a3;
+    position: absolute;
+    top: 108px;
+    left: 50%;
+}
+
+.extherapy-point {
+    position: absolute;
+    color: #6fd0c5;
+    font-size: 26px;
+    text-shadow: 0 0 22px #14a8a3, 0 0 40px rgba(20, 168, 163, 0.6);
+}
+
+.point-shoulder {
+    top: 90px;
+    left: 50%;
+}
+
+.point-core {
+    top: 182px;
+    left: 50%;
+}
+
+.point-legs {
+    bottom: 78px;
+    left: 50%;
+}
+
+.body-card span {
+    position: absolute;
+    font-size: 12px;
+    background: #0a2e2e;
+    padding: 6px 11px;
+    border-radius: 4px;
+    color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+    border: 1px solid rgba(20, 168, 163, 0.4);
+}
+
+.label-shoulder {
+    top: 80px;
+    right: -75px;
+}
+
+.label-core {
+    top: 175px;
+    left: -70px;
+}
+
+.label-legs {
+    bottom: 65px;
+    right: -70px;
+}
+
+.extherapy-floating-card {
+    position: absolute;
+    bottom: 40px;
+    left: 2%;
+    background: #ffffff;
+    color: #1a1a1a;
+    padding: 20px 26px;
+    display: flex;
+    flex-direction: column;
+    border-left: 4px solid #0d7377;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+    border-radius: 4px;
+}
+
+.extherapy-floating-card strong {
+    font-size: 17px;
+}
+
+.extherapy-floating-card span {
+    color: #555555;
+    font-size: 12px;
+}
+
+/* ================= WHY ================= */
+
+.why-section {
+    padding: 120px 0;
+}
+
+.extherapy-title {
+    max-width: 650px;
+}
+
+.extherapy-title h2 {
+    font-size: clamp(35px, 4vw, 54px);
+    line-height: 1.1;
+    margin: 15px 0 20px;
+    letter-spacing: -1px;
+}
+
+.extherapy-title h2 strong {
+    color: #0d7377;
+    display: block;
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 60px;
+}
+
+.why-card {
+    padding: 42px 36px;
+    background: linear-gradient(160deg, rgba(111, 208, 197, 0.2), rgba(111, 208, 197, 0.05));
+    border-top: 3px solid #0d7377;
+    border-radius: 6px;
+    box-shadow: 0 18px 40px rgba(10, 46, 46, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.why-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 26px 55px rgba(10, 46, 46, 0.14);
+}
+
+.why-icon {
+    font-size: 13px;
+    color: #0d7377;
+    font-weight: 900;
+    margin-bottom: 40px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(13, 115, 119, 0.12);
+}
+
+.why-card h3 {
+    font-size: 25px;
+    margin-bottom: 12px;
+}
+
+.why-card p {
+    color: #555555;
+}
+
+/* ================= EXERCISE PROGRAMS ================= */
+
+.extherapy-areas {
+    background: linear-gradient(180deg, rgba(111, 208, 197, 0.18), rgba(111, 208, 197, 0.06));
+    padding: 120px 0;
+}
+
+.center {
+    text-align: center;
+    margin: auto;
+}
+
+.center p {
+    color: #555555;
+}
+
+.areas-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+    margin-top: 60px;
+}
+
+.area-card {
+    min-height: 380px;
+    padding: 30px;
+    background: white;
+    position: relative;
+    overflow: hidden;
+    transition: 0.35s ease;
+    border-radius: 8px;
+    box-shadow: 0 18px 45px rgba(10, 46, 46, 0.1);
+    border: 1px solid rgba(13, 115, 119, 0.06);
+}
+
+.area-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 65px rgba(10, 46, 46, 0.2);
+}
+
+.area-card::after {
+    content: "";
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    position: absolute;
+    right: -85px;
+    top: -85px;
+    background: radial-gradient(circle, #6fd0c5, rgba(111, 208, 197, 0.4));
+    transition: transform 0.35s ease;
+}
+
+.area-card:hover::after {
+    transform: scale(1.15);
+}
+
+.area-top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #555555;
+    position: relative;
+    z-index: 1;
+}
+
+.area-symbol {
+    font-size: 68px;
+    color: #0d7377;
+    margin: 32px 0 16px;
+    position: relative;
+    z-index: 1;
+}
+
+.area-card h3 {
+    font-size: 26px;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.area-card p {
+    color: #555555;
+    font-size: 14px;
+    position: relative;
+    z-index: 1;
+}
+
+.area-card a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 28px;
+    color: #0d7377;
+    font-weight: 800;
+    font-size: 13px;
+    position: relative;
+    z-index: 1;
+    transition: gap 0.25s ease;
+}
+
+.area-card a:hover {
+    gap: 12px;
+}
+
+/* ================= TREATMENT / APPROACH ================= */
+
+.treatment-section {
+    background:
+        radial-gradient(700px 500px at 90% 10%, rgba(20, 168, 163, 0.18), transparent 60%),
+        #0a2e2e;
+    color: white;
+    padding: 130px 0;
+}
+
+.treatment-grid {
+    display: grid;
+    grid-template-columns: 1fr 0.75fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.treatment-content h2 {
+    font-size: clamp(38px, 4vw, 56px);
+    line-height: 1.1;
+    margin: 17px 0 22px;
+    letter-spacing: -1px;
+}
+
+.treatment-content h2 strong {
+    color: #14a8a3;
+}
+
+.treatment-content > p {
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 600px;
+}
+
+.treatment-list {
+    margin-top: 38px;
+}
+
+.treatment-list div {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    border-bottom: 1px solid rgba(20, 168, 163, 0.35);
+    padding: 20px 0;
+    transition: padding-left 0.25s ease;
+}
+
+.treatment-list div:hover {
+    padding-left: 8px;
+}
+
+.treatment-list b {
+    color: #14a8a3;
+    font-size: 14px;
+}
+
+.treatment-list span {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.treatment-box {
+    background: linear-gradient(160deg, #0d2f2c, #0a2e2e);
+    padding: 55px 50px;
+    border: 1px solid #14a8a3;
+    border-radius: 8px;
+    box-shadow: 0 30px 70px rgba(0,0,0,0.4);
+}
+
+.quote-mark {
+    font-size: 76px;
+    color: #14a8a3;
+    line-height: 0.6;
+}
+
+.treatment-box p {
+    font-size: 22px;
+    line-height: 1.6;
+    margin: 32px 0;
+}
+
+.treatment-line {
+    height: 2px;
+    width: 55px;
+    background: #14a8a3;
+    margin-bottom: 15px;
+}
+
+.treatment-box > span {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+/* ================= APPOINTMENT ================= */
+.appointment-section {
+    padding: 100px 0;
+    background: linear-gradient(120deg, #0d7377, #14a8a3);
+    color: white;
+    box-shadow: inset 0 0 90px rgba(0,0,0,0.15);
+}
+
+.appointment-box {
+    display: flex;
+    flex-direction: column; /* Content aur button ko ek ke neeche ek lane ke liye */
+    justify-content: center;
+    align-items: center;    /* Center align ke liye */
+    text-align: center;     /* Text centering ke liye */
+    gap: 30px;
+}
+
+.appointment-box h2 {
+    font-size: clamp(38px, 4vw, 56px);
+    line-height: 1.1;
+    margin: 12px 0;
+    letter-spacing: -1px;
+}
+
+.appointment-box > div > span {
+    color: #eafffb;
+}
+
+.appointment-box p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.appointment-box > a {
+    background: white;
+    color: #0a2e2e;
+    padding: 17px 30px;
+    font-weight: 900;
+    white-space: nowrap;
+    border-radius: var(--radius-pill, 50px);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.appointment-box > a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 26px 55px rgba(0,0,0,0.3);
+}
+
+/* ================= FOOTER ================= */
+
+.extherapy-footer {
+    background: #0a2e2e;
+    color: white;
+    padding-top: 70px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 50px;
+    padding-bottom: 60px;
+}
+
+.extherapy-footer .extherapy-logo {
+    color: white;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.footer-content p {
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 400px;
+    margin-top: 15px;
+}
+
+.footer-content h4 {
+    margin-bottom: 20px;
+    color: #6fd0c5;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.footer-content div > a {
+    display: block;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 14px;
+    margin-bottom: 12px;
+    transition: color 0.2s ease;
+}
+
+.footer-content div > a:hover {
+    color: #6fd0c5;
+}
+
+.extherapy-copyright {
+    text-align: center;
+    border-top: 1px solid rgba(20, 168, 163, 0.35);
+    padding: 22px;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 13px;
+}
+
+/* ================= SERVICE DETAIL PAGES ================= */
+
+.svc-breadcrumb {
+    padding: 22px 0;
+    background: #f2f6f5;
+    font-size: 13px;
+    color: #555555;
+}
+
+.svc-breadcrumb a {
+    color: #0d7377;
+    font-weight: 700;
+}
+
+.svc-hero {
+    background:
+        radial-gradient(800px 480px at 90% -10%, rgba(20, 168, 163, 0.3), transparent 60%),
+        linear-gradient(160deg, #0a2e2e, #072320);
+    color: white;
+    padding: 90px 0 80px;
+    position: relative;
+}
+
+.svc-hero-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    border: 1px solid rgba(20, 168, 163, 0.5);
+    border-radius: var(--radius-pill);
+    background: rgba(20, 168, 163, 0.08);
+    color: #14a8a3;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 2.5px;
+}
+
+.svc-hero h1 {
+    font-size: clamp(40px, 5vw, 64px);
+    line-height: 1.05;
+    margin: 22px 0 20px;
+    letter-spacing: -1px;
+    max-width: 750px;
+}
+
+.svc-hero p {
+    max-width: 620px;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 17px;
+}
+
+.svc-content {
+    padding: 100px 0;
+}
+
+.svc-content-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 70px;
+    align-items: start;
+}
+
+.svc-content-grid p {
+    color: #555555;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.svc-content-grid h2 {
+    font-size: clamp(30px, 3.4vw, 42px);
+    line-height: 1.15;
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
+}
+
+.svc-benefits {
+    background: linear-gradient(160deg, rgba(111, 208, 197, 0.2), rgba(111, 208, 197, 0.05));
+    border-top: 3px solid #0d7377;
+    border-radius: 8px;
+    padding: 34px 32px;
+    box-shadow: 0 20px 50px rgba(10, 46, 46, 0.1);
+}
+
+.svc-benefits h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.svc-benefits li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(13, 115, 119, 0.15);
+    color: #333333;
+    font-size: 14.5px;
+}
+
+.svc-benefits li:last-child {
+    border-bottom: none;
+}
+
+.svc-benefits li::before {
+    content: "✓";
+    color: #0d7377;
+    font-weight: 900;
+    flex-shrink: 0;
+}
+
+.svc-cta {
+    margin-top: 28px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #0d7377, #14a8a3);
+    color: white;
+    padding: 16px 28px;
+    font-weight: 800;
+    border-radius: var(--radius-pill);
+    box-shadow: 0 16px 36px rgba(13, 115, 119, 0.4);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.svc-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 22px 45px rgba(13, 115, 119, 0.5);
+}
+
+.svc-other {
+    background: #f7faf9;
+    padding: 90px 0;
+}
+
+.svc-other-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-top: 45px;
+}
+
+.svc-other-card {
+    background: white;
+    border-radius: 8px;
+    padding: 28px;
+    box-shadow: 0 16px 40px rgba(10, 46, 46, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.svc-other-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 55px rgba(10, 46, 46, 0.15);
+}
+
+.svc-other-card h4 {
+    font-size: 19px;
+    margin-bottom: 8px;
+}
+
+.svc-other-card p {
+    color: #555555;
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.svc-other-card a {
+    color: #0d7377;
+    font-weight: 800;
+    font-size: 13px;
+}
+
+/* ================= TABLET ================= */
+
+@media (max-width: 1000px) {
+
+    .extherapy-hero-grid {
+        grid-template-columns: 1fr;
+        padding: 80px 0;
+    }
+
+    .extherapy-hero-content {
+        text-align: center;
+    }
+
+    .extherapy-hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .extherapy-hero-buttons {
+        justify-content: center;
+    }
+
+    .extherapy-hero-art {
+        height: 450px;
+    }
+
+    .why-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .areas-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .treatment-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .svc-content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .svc-other-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 700px) {
+
+    .nav-wrapper {
+        height: auto;
+        padding: 16px;
+        flex-wrap: wrap;
+    }
+
+    .extherapy-hero-grid {
+        padding: 65px 0;
+    }
+
+    .extherapy-hero-content h1 {
+        font-size: 45px;
+    }
+
+    .extherapy-hero-art {
+        height: 400px;
+    }
+
+    .extherapy-orbit {
+        width: 320px;
+        height: 320px;
+    }
+
+    .body-card {
+        transform: scale(0.85);
+    }
+
+    .why-section,
+    .extherapy-areas,
+    .treatment-section,
+    .svc-content,
+    .svc-other {
+        padding: 70px 0;
+    }
+
+    .why-grid,
+    .areas-grid,
+    .svc-other-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .area-card {
+        min-height: 320px;
+    }
+
+    .appointment-box {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .extherapy-hero-content h1 {
+        font-size: 38px;
+    }
+
+    .extherapy-hero-buttons {
+        flex-direction: column;
+    }
+
+    .extherapy-main-btn,
+    .extherapy-outline-btn {
+        text-align: center;
+    }
+
+    .extherapy-orbit {
+        width: 280px;
+        height: 280px;
+    }
+
+    .body-card {
+        transform: scale(0.72);
+    }
+
+    .extherapy-floating-card {
+        left: 0;
+    }
+
+    .treatment-box {
+        padding: 30px;
+    }
+}
