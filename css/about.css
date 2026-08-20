@@ -109,6 +109,7 @@
     width: min(1200px, 90%);
     margin: auto;
     padding: 100px 0;
+
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 80px;
@@ -534,9 +535,61 @@
 }
 
 
-/* =========================================
-   RESPONSIVE
-========================================= */
+/* =========================================================
+   ABOUT PAGE NAVBAR - SPACING FIX
+========================================================= */
+
+@media (min-width: 1001px) {
+
+    .navbar .nav-wrapper {
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar .nav {
+        display: flex;
+        align-items: center;
+        gap: 38px;
+        margin-left: auto;
+        margin-right: 45px;
+    }
+
+    .navbar .nav__link,
+    .navbar .nav-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+        text-decoration: none;
+    }
+
+    .navbar .nav-dropdown {
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+
+    .navbar .nav-link-drop {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        white-space: nowrap;
+    }
+
+    .navbar .chevron {
+        margin-left: 4px;
+    }
+
+    .navbar .appointment-btn {
+        margin-left: 0;
+        flex-shrink: 0;
+    }
+}
+
+
+/* =========================================================
+   TABLET - ABOUT PAGE
+========================================================= */
 
 @media (max-width: 1000px) {
 
@@ -572,8 +625,17 @@
         flex-direction: column;
         align-items: flex-start;
     }
+
+    /* Navbar */
+    .navbar .nav {
+        gap: 25px;
+    }
 }
 
+
+/* =========================================================
+   MOBILE - ABOUT PAGE
+========================================================= */
 
 @media (max-width: 650px) {
 
@@ -644,82 +706,195 @@
     .why-badge {
         left: 10px;
     }
+
+    /* Navbar */
+    .navbar .nav {
+        gap: 18px;
+    }
 }
 
+
 /* =========================================================
-   ABOUT PAGE NAVBAR - SPACING FIX
+   FOOTER
+   SAME COLOR AS SECOND FILE
 ========================================================= */
 
-@media (min-width: 1001px) {
+.footer {
+    width: 100%;
+    background: #062f2d;
+    color: #ffffff;
+    padding: 75px 0 0;
+}
 
-    .navbar .nav-wrapper {
-        display: flex;
-        align-items: center;
-    }
-
-    .navbar .nav {
-        display: flex;
-        align-items: center;
-        gap: 38px;
-        margin-left: auto;
-        margin-right: 45px;
-    }
-
-    .navbar .nav__link,
-    .navbar .nav-link {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        white-space: nowrap;
-        text-decoration: none;
-    }
-
-    /* Our Services */
-    .navbar .nav-dropdown {
-        display: flex;
-        align-items: center;
-        position: relative;
-    }
-
-    .navbar .nav-link-drop {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        white-space: nowrap;
-    }
-
-    /* Dropdown arrow */
-    .navbar .chevron {
-        margin-left: 4px;
-    }
-
-    /* Appointment */
-    .navbar .appointment-btn {
-        margin-left: 0;
-        flex-shrink: 0;
-    }
+.footer .container {
+    width: min(1200px, 90%);
+    margin: 0 auto;
 }
 
 
 /* =========================================================
-   TABLET
+   FOOTER GRID
 ========================================================= */
 
-@media (max-width: 1000px) {
-
-    .navbar .nav {
-        gap: 25px;
-    }
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 0.8fr 1fr 1fr;
+    gap: 50px;
+    padding-bottom: 55px;
 }
 
 
 /* =========================================================
-   MOBILE
+   FOOTER BRAND
+========================================================= */
+
+.footer-brand img {
+    width: 170px;
+    max-width: 100%;
+    height: auto;
+
+    background: #ffffff;
+    padding: 7px;
+    border-radius: 5px;
+
+    margin-bottom: 18px;
+    display: block;
+}
+
+.footer-brand p {
+    color: rgba(255,255,255,0.65);
+    max-width: 330px;
+    font-size: 14px;
+    line-height: 1.8;
+    margin: 0;
+}
+
+
+/* =========================================================
+   FOOTER COLUMNS
+========================================================= */
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 9px;
+}
+
+.footer-column h3 {
+    color: #ffffff;
+    margin: 0 0 10px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.footer-column a,
+.footer-column p {
+    color: rgba(255,255,255,0.68);
+    font-size: 14px;
+    line-height: 1.6;
+    text-decoration: none;
+    margin: 0;
+    transition: 0.3s ease;
+}
+
+.footer-column a:hover {
+    color: #72d8d1;
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   FOOTER BOTTOM
+========================================================= */
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.12);
+
+    padding: 22px 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    color: rgba(255,255,255,0.55);
+    font-size: 13px;
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: rgba(255,255,255,0.55);
+    font-size: 13px;
+}
+
+.footer-bottom > div {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-bottom a {
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    font-size: 13px;
+    transition: 0.3s ease;
+}
+
+.footer-bottom a:hover {
+    color: #72d8d1;
+}
+
+
+/* =========================================================
+   FOOTER TABLET
+========================================================= */
+
+@media (max-width: 1050px) {
+
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+
+}
+
+
+/* =========================================================
+   FOOTER MOBILE
 ========================================================= */
 
 @media (max-width: 650px) {
 
-    .navbar .nav {
-        gap: 18px;
+    .footer {
+        padding: 50px 0 0;
     }
+
+    .footer .container {
+        width: 90%;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding-bottom: 35px;
+    }
+
+    .footer-brand p {
+        max-width: 100%;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .footer-bottom > div {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
 }

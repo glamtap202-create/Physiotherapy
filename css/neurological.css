@@ -1348,38 +1348,49 @@ select {
     color: #ffffff;
 }
 
-
 /* =====================================================
    FOOTER
 ===================================================== */
 
 .footer {
-    background: #0a2e2e;
+    background: #062f2d;
     color: #ffffff;
     padding: 75px 0 0;
 }
 
+/* =========================
+   FOOTER GRID
+========================= */
+
 .footer-grid {
     display: grid;
-    grid-template-columns: 1.3fr 0.7fr 1fr 1fr;
+    grid-template-columns: 1.4fr 0.8fr 1fr 1fr;
     gap: 50px;
     padding-bottom: 55px;
 }
 
-.footer-brand img {
-    width: 150px;
-    margin-bottom: 20px;
-}
+/* =========================
+   FOOTER BRAND
+========================= */
 
-.footer-brand p,
-.footer-column p {
-    color: rgba(255,255,255,0.65);
-    font-size: 14px;
+.footer-brand img {
+    width: 170px;
+    background: #ffffff;
+    padding: 7px;
+    border-radius: 5px;
+    margin-bottom: 18px;
 }
 
 .footer-brand p {
-    max-width: 320px;
+    color: rgba(255, 255, 255, 0.65);
+    max-width: 330px;
+    font-size: 14px;
+    line-height: 1.8;
 }
+
+/* =========================
+   FOOTER COLUMNS
+========================= */
 
 .footer-column {
     display: flex;
@@ -1389,28 +1400,36 @@ select {
 }
 
 .footer-column h3 {
+    color: #ffffff;
+    margin-bottom: 10px;
     font-size: 16px;
-    margin-bottom: 12px;
+    font-weight: 700;
 }
 
-.footer-column a {
-    color: rgba(255,255,255,0.68);
+.footer-column a,
+.footer-column p {
+    color: rgba(255, 255, 255, 0.68);
     font-size: 14px;
-    transition: 0.25s ease;
+    line-height: 1.6;
+    transition: color 0.3s ease;
 }
 
 .footer-column a:hover {
-    color: #8ed6cc;
+    color: #72d8d1;
 }
 
+/* =========================
+   FOOTER BOTTOM
+========================= */
+
 .footer-bottom {
-    min-height: 75px;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 22px 0;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     gap: 20px;
-    color: rgba(255,255,255,0.55);
+    color: rgba(255, 255, 255, 0.55);
     font-size: 13px;
 }
 
@@ -1419,52 +1438,25 @@ select {
     gap: 20px;
 }
 
-/* Scroll reveal animation fix */
-.info-card,
-.technique-card,
-.benefit-item,
-.process-card {
-    opacity: 0;
-    transform: translateY(25px);
+.footer-bottom a {
+    color: rgba(255, 255, 255, 0.55);
+    transition: color 0.3s ease;
 }
 
-.info-card.visible,
-.technique-card.visible,
-.benefit-item.visible,
-.process-card.visible {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
-}
-.topbar__left,
-.topbar__center,
-.topbar__right {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+.footer-bottom a:hover {
+    color: #72d8d1;
 }
 
-.topbar {
-    min-height: 42px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-}
+/* =========================
+   FOOTER SOCIAL ICONS
+========================= */
 
-.topbar__link {
-    display: flex;
-    align-items: center;
-    gap: 6px;
+.footer .social-icon {
     color: #ffffff;
 }
 
-.social-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 30px;
-    height: 30px;
-    color: #ffffff;
+.footer .social-icon:hover {
+    color: #72d8d1;
 }
 /* =====================================================
    RESPONSIVE

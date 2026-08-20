@@ -1,13 +1,10 @@
 /* =====================================================
    HEALING VIBES CLINIC
    APPOINTMENT PAGE JAVASCRIPT
+   WhatsApp Appointment Booking
 ===================================================== */
 
 document.addEventListener("DOMContentLoaded", function () {
-
-    /* =================================================
-       GET FORM
-    ================================================== */
 
     const form = document.getElementById("appointmentForm");
 
@@ -15,294 +12,86 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
-
-    /* =================================================
+    /* =====================================================
        FORM ELEMENTS
-    ================================================== */
+    ===================================================== */
 
     const nameInput = document.getElementById("name");
     const phoneInput = document.getElementById("phone");
     const emailInput = document.getElementById("email");
     const ageInput = document.getElementById("age");
-
     const serviceInput = document.getElementById("service");
     const doctorInput = document.getElementById("doctor");
-
     const dateInput = document.getElementById("date");
-
     const messageInput = document.getElementById("message");
+    const agreementInput = document.getElementById("agreement");
+    const submitButton = document.getElementById("submitBtn");
 
-    const agreementInput =
-        document.getElementById("agreement");
-
-    const submitButton =
-        document.getElementById("submitBtn");
-
-    const successMessage =
-        document.getElementById("successMessage");
-
-
-    /* =================================================
-       SET TODAY AS MINIMUM DATE
-    ================================================== */
+    /* =====================================================
+       TODAY AS MINIMUM DATE
+    ===================================================== */
 
     const today = new Date();
 
     const year = today.getFullYear();
 
-    const month = String(
-        today.getMonth() + 1
-    ).padStart(2, "0");
+    const month = String(today.getMonth() + 1).padStart(2, "0");
 
-    const day = String(
-        today.getDate()
-    ).padStart(2, "0");
+    const day = String(today.getDate()).padStart(2, "0");
 
-    const currentDate =
-        `${year}-${month}-${day}`;
-
+    const currentDate = `${year}-${month}-${day}`;
 
     if (dateInput) {
         dateInput.min = currentDate;
     }
 
+    /* =====================================================
+       ERROR FUNCTIONS
+    ===================================================== */
 
-    /* =================================================
-       PHONE NUMBER
-       ONLY 10 DIGITS
-    ================================================== */
+    function setError(field, message) {
 
-    if (phoneInput) {
+        const input = document.getElementById(field);
 
-        phoneInput.addEventListener(
-            "input",
-            function () {
-
-                this.value =
-                    this.value
-                        .replace(/\D/g, "")
-                        .slice(0, 10);
-
-                clearError("phone");
-
-            }
-        );
-
-    }
-
-
-    /* =================================================
-       CLEAR ERROR WHEN USER TYPES
-    ================================================== */
-
-    if (nameInput) {
-
-        nameInput.addEventListener(
-            "input",
-            function () {
-                clearError("name");
-            }
-        );
-
-    }
-
-
-    if (emailInput) {
-
-        emailInput.addEventListener(
-            "input",
-            function () {
-                clearError("email");
-            }
-        );
-
-    }
-
-
-    if (ageInput) {
-
-        ageInput.addEventListener(
-            "input",
-            function () {
-                clearError("age");
-            }
-        );
-
-    }
-
-
-    if (serviceInput) {
-
-        serviceInput.addEventListener(
-            "change",
-            function () {
-                clearError("service");
-            }
-        );
-
-    }
-
-
-    if (doctorInput) {
-
-        doctorInput.addEventListener(
-            "change",
-            function () {
-                clearError("doctor");
-            }
-        );
-
-    }
-
-
-    if (dateInput) {
-
-        dateInput.addEventListener(
-            "change",
-            function () {
-                clearError("date");
-            }
-        );
-
-    }
-
-
-    if (agreementInput) {
-
-        agreementInput.addEventListener(
-            "change",
-            function () {
-                clearError("agreement");
-            }
-        );
-
-    }
-
-
-    /* =================================================
-       TIME SLOT ERROR CLEAR
-    ================================================== */
-
-    const timeOptions =
-        document.querySelectorAll(
-            'input[name="time"]'
-        );
-
-
-    timeOptions.forEach(
-        function (radio) {
-
-            radio.addEventListener(
-                "change",
-                function () {
-
-                    clearError("time");
-
-                }
-            );
-
-        }
-    );
-
-
-    /* =================================================
-       SET ERROR
-    ================================================== */
-
-    function setError(
-        field,
-        message
-    ) {
-
-        const input =
-            document.getElementById(field);
-
-        const error =
-            document.getElementById(
-                `${field}Error`
-            );
-
+        const error = document.getElementById(`${field}Error`);
 
         if (input) {
-
-            input.classList.add(
-                "invalid"
-            );
-
+            input.classList.add("invalid");
         }
-
 
         if (error) {
-
-            error.textContent =
-                message;
-
+            error.textContent = message;
         }
-
     }
-
-
-    /* =================================================
-       CLEAR ERROR
-    ================================================== */
 
     function clearError(field) {
 
-        const input =
-            document.getElementById(field);
+        const input = document.getElementById(field);
 
-        const error =
-            document.getElementById(
-                `${field}Error`
-            );
-
+        const error = document.getElementById(`${field}Error`);
 
         if (input) {
-
-            input.classList.remove(
-                "invalid"
-            );
-
+            input.classList.remove("invalid");
         }
-
 
         if (error) {
-
             error.textContent = "";
-
         }
-
-
-        /* Agreement special error */
 
         if (field === "agreement") {
 
             const agreementError =
-                document.getElementById(
-                    "agreementError"
-                );
-
+                document.getElementById("agreementError");
 
             if (agreementError) {
-
-                agreementError.textContent =
-                    "";
-
+                agreementError.textContent = "";
             }
-
         }
-
     }
-
-
-    /* =================================================
-       CLEAR ALL ERRORS
-    ================================================== */
 
     function clearAllErrors() {
 
         const fields = [
-
             "name",
             "phone",
             "email",
@@ -312,40 +101,103 @@ document.addEventListener("DOMContentLoaded", function () {
             "date",
             "time",
             "agreement"
-
         ];
 
-
-        fields.forEach(
-            function (field) {
-
-                clearError(field);
-
-            }
-        );
-
+        fields.forEach(function (field) {
+            clearError(field);
+        });
     }
 
+    /* =====================================================
+       PHONE - ONLY 10 DIGITS
+    ===================================================== */
 
-    /* =================================================
-       VALIDATE FORM
-    ================================================== */
+    if (phoneInput) {
+
+        phoneInput.addEventListener("input", function () {
+
+            this.value = this.value
+                .replace(/\D/g, "")
+                .slice(0, 10);
+
+            clearError("phone");
+        });
+    }
+
+    /* =====================================================
+       CLEAR ERRORS WHILE USER TYPES
+    ===================================================== */
+
+    if (nameInput) {
+        nameInput.addEventListener("input", function () {
+            clearError("name");
+        });
+    }
+
+    if (emailInput) {
+        emailInput.addEventListener("input", function () {
+            clearError("email");
+        });
+    }
+
+    if (ageInput) {
+        ageInput.addEventListener("input", function () {
+            clearError("age");
+        });
+    }
+
+    if (serviceInput) {
+        serviceInput.addEventListener("change", function () {
+            clearError("service");
+        });
+    }
+
+    if (doctorInput) {
+        doctorInput.addEventListener("change", function () {
+            clearError("doctor");
+        });
+    }
+
+    if (dateInput) {
+        dateInput.addEventListener("change", function () {
+            clearError("date");
+        });
+    }
+
+    if (agreementInput) {
+        agreementInput.addEventListener("change", function () {
+            clearError("agreement");
+        });
+    }
+
+    /* =====================================================
+       TIME SLOT ERROR CLEAR
+    ===================================================== */
+
+    const timeOptions =
+        document.querySelectorAll('input[name="time"]');
+
+    timeOptions.forEach(function (radio) {
+
+        radio.addEventListener("change", function () {
+            clearError("time");
+        });
+
+    });
+
+    /* =====================================================
+       FORM VALIDATION
+    ===================================================== */
 
     function validateForm() {
 
         let isValid = true;
 
-
         clearAllErrors();
 
+        /* NAME */
 
-        /* ---------------------------------------------
-           NAME
-        --------------------------------------------- */
-
-        const name =
-            nameInput.value.trim();
-
+        const name = nameInput.value.trim();
 
         if (name.length < 2) {
 
@@ -355,21 +207,13 @@ document.addEventListener("DOMContentLoaded", function () {
             );
 
             isValid = false;
-
         }
 
+        /* PHONE */
 
-        /* ---------------------------------------------
-           PHONE
-        --------------------------------------------- */
+        const phone = phoneInput.value.trim();
 
-        const phone =
-            phoneInput.value.trim();
-
-
-        if (
-            !/^[6-9]\d{9}$/.test(phone)
-        ) {
+        if (!/^[6-9]\d{9}$/.test(phone)) {
 
             setError(
                 "phone",
@@ -377,17 +221,11 @@ document.addEventListener("DOMContentLoaded", function () {
             );
 
             isValid = false;
-
         }
 
+        /* EMAIL */
 
-        /* ---------------------------------------------
-           EMAIL
-        --------------------------------------------- */
-
-        const email =
-            emailInput.value.trim();
-
+        const email = emailInput.value.trim();
 
         if (
             email &&
@@ -400,24 +238,15 @@ document.addEventListener("DOMContentLoaded", function () {
             );
 
             isValid = false;
-
         }
 
-
-        /* ---------------------------------------------
-           AGE
-        --------------------------------------------- */
+        /* AGE */
 
         if (ageInput.value) {
 
-            const age =
-                Number(ageInput.value);
+            const age = Number(ageInput.value);
 
-
-            if (
-                age < 1 ||
-                age > 120
-            ) {
+            if (age < 1 || age > 120) {
 
                 setError(
                     "age",
@@ -425,15 +254,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 );
 
                 isValid = false;
-
             }
-
         }
 
-
-        /* ---------------------------------------------
-           SERVICE
-        --------------------------------------------- */
+        /* SERVICE */
 
         if (!serviceInput.value) {
 
@@ -443,13 +267,9 @@ document.addEventListener("DOMContentLoaded", function () {
             );
 
             isValid = false;
-
         }
 
-
-        /* ---------------------------------------------
-           THERAPIST
-        --------------------------------------------- */
+        /* THERAPIST */
 
         if (!doctorInput.value) {
 
@@ -459,13 +279,9 @@ document.addEventListener("DOMContentLoaded", function () {
             );
 
             isValid = false;
-
         }
 
-
-        /* ---------------------------------------------
-           DATE
-        --------------------------------------------- */
+        /* DATE */
 
         if (!dateInput.value) {
 
@@ -476,10 +292,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             isValid = false;
 
-        }
-        else if (
-            dateInput.value < currentDate
-        ) {
+        } else if (dateInput.value < currentDate) {
 
             setError(
                 "date",
@@ -487,19 +300,14 @@ document.addEventListener("DOMContentLoaded", function () {
             );
 
             isValid = false;
-
         }
 
-
-        /* ---------------------------------------------
-           TIME
-        --------------------------------------------- */
+        /* TIME */
 
         const selectedTime =
             document.querySelector(
                 'input[name="time"]:checked'
             );
-
 
         if (!selectedTime) {
 
@@ -509,301 +317,157 @@ document.addEventListener("DOMContentLoaded", function () {
             );
 
             isValid = false;
-
         }
 
+        /* AGREEMENT */
 
-        /* ---------------------------------------------
-           AGREEMENT
-        --------------------------------------------- */
-
-        if (
-            !agreementInput.checked
-        ) {
+        if (!agreementInput.checked) {
 
             const agreementError =
-                document.getElementById(
-                    "agreementError"
-                );
-
+                document.getElementById("agreementError");
 
             if (agreementError) {
 
                 agreementError.textContent =
                     "Please accept the appointment terms.";
-
             }
-
 
             isValid = false;
-
         }
-
 
         return isValid;
-
     }
 
-
-    /* =================================================
+    /* =====================================================
        FORM SUBMIT
-    ================================================== */
+    ===================================================== */
 
-    form.addEventListener(
-        "submit",
-        function (event) {
+    form.addEventListener("submit", function (event) {
 
-            event.preventDefault();
+        event.preventDefault();
 
+        /* VALIDATE */
 
-            /* -----------------------------------------
-               VALIDATE
-            ----------------------------------------- */
+        if (!validateForm()) {
 
-            const valid =
-                validateForm();
+            const firstInvalid =
+                form.querySelector(".invalid");
 
-
-            if (!valid) {
-
-                const firstInvalid =
-                    form.querySelector(
-                        ".invalid"
-                    );
-
-
-                if (firstInvalid) {
-
-                    firstInvalid.focus();
-
-                }
-
-
-                return;
-
+            if (firstInvalid) {
+                firstInvalid.focus();
             }
 
-
-            /* -----------------------------------------
-               GET FORM DATA
-            ----------------------------------------- */
-
-            const name =
-                nameInput.value.trim();
-
-
-            const phone =
-                phoneInput.value.trim();
-
-
-            const email =
-                emailInput.value.trim();
-
-
-            const age =
-                ageInput.value.trim();
-
-
-            const service =
-                serviceInput.value;
-
-
-            const doctor =
-                doctorInput.value;
-
-
-            const date =
-                dateInput.value;
-
-
-            const message =
-                messageInput.value.trim();
-
-
-            const selectedTime =
-                document.querySelector(
-                    'input[name="time"]:checked'
-                );
-
-
-            /* -----------------------------------------
-               FORMAT DATE
-            ----------------------------------------- */
-
-            const formattedDate =
-                new Date(
-                    `${date}T00:00:00`
-                ).toLocaleDateString(
-                    "en-IN",
-                    {
-                        day: "numeric",
-                        month: "long",
-                        year: "numeric"
-                    }
-                );
-
-
-            /* -----------------------------------------
-               BUTTON LOADING
-            ----------------------------------------- */
-
-            submitButton.disabled =
-                true;
-
-
-            submitButton.querySelector(
-                "span:first-child"
-            ).textContent =
-                "Submitting...";
-
-
-            /* -----------------------------------------
-               DEMO SUBMISSION
-            ----------------------------------------- */
-
-            setTimeout(
-                function () {
-
-
-                    /* ---------------------------------
-                       SUCCESS MESSAGE
-                    --------------------------------- */
-
-                    successMessage.innerHTML = `
-
-                        <strong>
-                            Appointment Request Submitted!
-                        </strong>
-
-                        <br><br>
-
-                        Thank you,
-                        <strong>
-                            ${escapeHtml(name)}
-                        </strong>.
-
-                        Your appointment request has been
-                        received for
-
-                        <strong>
-                            ${escapeHtml(formattedDate)}
-                        </strong>
-
-                        at
-
-                        <strong>
-                            ${escapeHtml(
-                                selectedTime.value
-                            )}
-                        </strong>.
-
-                        <br><br>
-
-                        <strong>
-                            Phone:
-                        </strong>
-
-                        ${escapeHtml(phone)}
-
-                        <br>
-
-                        <strong>
-                            Service:
-                        </strong>
-
-                        ${escapeHtml(service)}
-
-                        <br>
-
-                        <strong>
-                            Therapist:
-                        </strong>
-
-                        ${escapeHtml(doctor)}
-
-                        <br>
-
-                        Our team will contact you shortly.
-
-                    `;
-
-
-                    /* ---------------------------------
-                       SHOW SUCCESS
-                    --------------------------------- */
-
-                    successMessage.classList.add(
-                        "show"
-                    );
-
-
-                    /* ---------------------------------
-                       SCROLL TO MESSAGE
-                    --------------------------------- */
-
-                    successMessage.scrollIntoView(
-                        {
-                            behavior: "smooth",
-                            block: "center"
-                        }
-                    );
-
-
-                    /* ---------------------------------
-                       RESET FORM
-                    --------------------------------- */
-
-                    form.reset();
-
-
-                    /* Keep minimum date */
-
-                    dateInput.min =
-                        currentDate;
-
-
-                    /* ---------------------------------
-                       RESET BUTTON
-                    --------------------------------- */
-
-                    submitButton.disabled =
-                        false;
-
-
-                    submitButton.querySelector(
-                        "span:first-child"
-                    ).textContent =
-                        "Book Appointment";
-
-
-                },
-                600
-            );
-
+            return;
         }
-    );
 
+        /* =================================================
+           GET FORM DATA
+        ================================================= */
 
-    /* =================================================
-       ESCAPE HTML
-       Security helper
-    ================================================== */
+        const name =
+            nameInput.value.trim();
 
-    function escapeHtml(value) {
+        const phone =
+            phoneInput.value.trim();
 
-        const div =
-            document.createElement(
-                "div"
+        const email =
+            emailInput.value.trim();
+
+        const age =
+            ageInput.value.trim();
+
+        const service =
+            serviceInput.value;
+
+        const doctor =
+            doctorInput.value;
+
+        const date =
+            dateInput.value;
+
+        const message =
+            messageInput.value.trim();
+
+        const selectedTime =
+            document.querySelector(
+                'input[name="time"]:checked'
             );
 
+        const time =
+            selectedTime ? selectedTime.value : "";
 
-        div.textContent =
-            value;
+        /* =================================================
+           WHATSAPP MESSAGE
+        ================================================= */
 
+        const whatsappMessage = `
+*New Appointment Request*
 
-        return div.innerHTML;
+*Name:* ${name}
 
-    }
+*Phone:* ${phone}
 
+*Email:* ${email || "Not provided"}
+
+*Age:* ${age || "Not provided"}
+
+*Service:* ${service}
+
+*Therapist:* ${doctor}
+
+*Date:* ${date}
+
+*Time:* ${time}
+
+*Additional Message:*
+${message || "No additional message"}
+        `;
+
+        /* =================================================
+           WHATSAPP NUMBER
+        ================================================= */
+
+        const whatsappNumber = "918750355566";
+
+        const whatsappURL =
+            "https://wa.me/" +
+            whatsappNumber +
+            "?text=" +
+            encodeURIComponent(whatsappMessage);
+
+        /* =================================================
+           BUTTON LOADING
+        ================================================= */
+
+        submitButton.disabled = true;
+
+        const buttonText =
+            submitButton.querySelector("span:first-child");
+
+        if (buttonText) {
+            buttonText.textContent = "Opening WhatsApp...";
+        }
+
+        /* =================================================
+           OPEN WHATSAPP
+        ================================================= */
+
+        window.open(whatsappURL, "_blank");
+
+        /* =================================================
+           RESET BUTTON
+        ================================================= */
+
+        setTimeout(function () {
+
+            submitButton.disabled = false;
+
+            if (buttonText) {
+                buttonText.textContent = "Book Appointment";
+            }
+
+        }, 1500);
+
+    });
 
 });

@@ -1279,70 +1279,115 @@ select {
     color: white;
 }
 
-
 /* =====================================================
    FOOTER
 ===================================================== */
 
 .footer {
-    background: #102f2b;
-    color: white;
-    padding: 75px 0 25px;
+    background: #062f2d;
+    color: #ffffff;
+    padding: 75px 0 0;
 }
+
+/* =========================
+   FOOTER GRID
+========================= */
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 1.4fr 1fr 1.2fr 1fr;
-    gap: 45px;
-    padding-bottom: 50px;
+    grid-template-columns: 1.4fr 0.8fr 1fr 1fr;
+    gap: 50px;
+    padding-bottom: 55px;
 }
+
+/* =========================
+   FOOTER BRAND
+========================= */
 
 .footer-brand img {
-    width: 140px;
-    margin-bottom: 20px;
+    width: 170px;
+    background: #ffffff;
+    padding: 7px;
+    border-radius: 5px;
+    margin-bottom: 18px;
 }
 
-.footer-brand p,
-.footer-column p {
-    color: rgba(255,255,255,.62);
+.footer-brand p {
+    color: rgba(255, 255, 255, 0.65);
+    max-width: 330px;
     font-size: 14px;
+    line-height: 1.8;
 }
+
+/* =========================
+   FOOTER COLUMNS
+========================= */
 
 .footer-column {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    align-items: flex-start;
+    gap: 9px;
 }
 
 .footer-column h3 {
+    color: #ffffff;
     margin-bottom: 10px;
-    color: #91d1bd;
+    font-size: 16px;
+    font-weight: 700;
 }
 
-.footer-column a {
-    color: rgba(255,255,255,.68);
+.footer-column a,
+.footer-column p {
+    color: rgba(255, 255, 255, 0.68);
     font-size: 14px;
-    transition: .3s;
+    line-height: 1.6;
+    transition: color 0.3s ease;
 }
 
 .footer-column a:hover {
-    color: white;
-    transform: translateX(3px);
+    color: #72d8d1;
 }
 
+/* =========================
+   FOOTER BOTTOM
+========================= */
+
 .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,.12);
-    padding-top: 22px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 22px 0;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     gap: 20px;
-    color: rgba(255,255,255,.55);
+    color: rgba(255, 255, 255, 0.55);
     font-size: 13px;
 }
 
 .footer-bottom div {
     display: flex;
     gap: 20px;
+}
+
+.footer-bottom a {
+    color: rgba(255, 255, 255, 0.55);
+    transition: color 0.3s ease;
+}
+
+.footer-bottom a:hover {
+    color: #72d8d1;
+}
+
+/* =========================
+   FOOTER SOCIAL ICONS
+========================= */
+
+.footer .social-icon {
+    color: #ffffff;
+}
+
+.footer .social-icon:hover {
+    color: #72d8d1;
 }
 
 

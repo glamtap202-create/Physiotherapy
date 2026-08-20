@@ -1165,60 +1165,193 @@ h1, h2, h3, h4, h5, h6, p {
     transform: translateY(-3px);
     box-shadow: 0 26px 55px rgba(0,0,0,0.3);
 }
+/* =====================================================
+   FOOTER
+===================================================== */
 
-/* ================= FOOTER ================= */
-
-.extherapy-footer {
-    background: #0a2e2e;
-    color: white;
-    padding-top: 70px;
+.footer {
+    width: 100%;
+    background: #062f2d;
+    color: #ffffff;
+    padding: 75px 0 0;
 }
 
-.footer-content {
+/* =====================================================
+   FOOTER CONTAINER
+===================================================== */
+
+.footer .container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-left: 30px;
+    padding-right: 30px;
+    box-sizing: border-box;
+}
+
+/* =====================================================
+   FOOTER GRID
+===================================================== */
+
+.footer-grid {
+    width: 100%;
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 1.4fr 0.8fr 1fr 1fr;
     gap: 50px;
-    padding-bottom: 60px;
+    padding-bottom: 55px;
 }
 
-.extherapy-footer .extherapy-logo {
-    color: white;
-    font-size: 22px;
-    font-weight: 800;
+/* =====================================================
+   FOOTER BRAND
+===================================================== */
+
+.footer-brand {
+    min-width: 0;
 }
 
-.footer-content p {
-    color: rgba(255, 255, 255, 0.85);
-    max-width: 400px;
-    margin-top: 15px;
+.footer-brand img {
+    width: 170px;
+    max-width: 100%;
+    height: auto;
+    background: #ffffff;
+    padding: 7px;
+    border-radius: 5px;
+    margin-bottom: 18px;
 }
 
-.footer-content h4 {
-    margin-bottom: 20px;
-    color: #6fd0c5;
+.footer-brand p {
+    color: rgba(255, 255, 255, 0.65);
+    max-width: 330px;
     font-size: 14px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    line-height: 1.8;
 }
 
-.footer-content div > a {
-    display: block;
-    color: rgba(255, 255, 255, 0.85);
+/* =====================================================
+   FOOTER COLUMNS
+===================================================== */
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 9px;
+    min-width: 0;
+}
+
+.footer-column h3 {
+    color: #ffffff;
+    margin: 0 0 10px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.footer-column a,
+.footer-column p {
+    color: rgba(255, 255, 255, 0.68);
     font-size: 14px;
-    margin-bottom: 12px;
-    transition: color 0.2s ease;
+    line-height: 1.6;
+    margin: 0;
+    overflow-wrap: anywhere;
+    transition: color 0.3s ease;
 }
 
-.footer-content div > a:hover {
-    color: #6fd0c5;
+.footer-column a:hover {
+    color: #72d8d1;
 }
 
-.extherapy-copyright {
-    text-align: center;
-    border-top: 1px solid rgba(20, 168, 163, 0.35);
-    padding: 22px;
-    color: rgba(255, 255, 255, 0.85);
+/* =====================================================
+   FOOTER BOTTOM
+===================================================== */
+
+.footer-bottom {
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+
+    padding: 22px 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+
+    color: rgba(255, 255, 255, 0.55);
     font-size: 13px;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+.footer-bottom div {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-bottom a {
+    color: rgba(255, 255, 255, 0.55);
+    transition: color 0.3s ease;
+}
+
+.footer-bottom a:hover {
+    color: #72d8d1;
+}
+
+/* =====================================================
+   FOOTER RESPONSIVE
+===================================================== */
+
+@media (max-width: 992px) {
+
+    .footer {
+        padding-top: 60px;
+    }
+
+    .footer .container {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px 30px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .footer {
+        padding-top: 50px;
+    }
+
+    .footer .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding-bottom: 40px;
+    }
+
+    .footer-brand p {
+        max-width: 100%;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        padding: 20px 0;
+    }
+
+    .footer-bottom div {
+        flex-wrap: wrap;
+        gap: 12px 20px;
+    }
 }
 
 /* ================= SERVICE DETAIL PAGES ================= */

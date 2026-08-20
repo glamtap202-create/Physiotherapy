@@ -1359,66 +1359,88 @@ select {
     color: #ffffff;
 }
 
-
 /* =====================================================
    FOOTER
 ===================================================== */
 
 .footer {
-    background: #102f34;
+    background: #062f2d;
     color: #ffffff;
-    padding: 75px 0 25px;
+    padding: 75px 0 0;
 }
+
+/* =========================
+   FOOTER GRID
+========================= */
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 1.3fr 0.8fr 1fr 1fr;
-    gap: 45px;
+    grid-template-columns: 1.4fr 0.8fr 1fr 1fr;
+    gap: 50px;
+    padding-bottom: 55px;
 }
 
+/* =========================
+   FOOTER BRAND
+========================= */
+
 .footer-brand img {
-    width: 150px;
-    margin-bottom: 20px;
+    width: 170px;
+    background: #ffffff;
+    padding: 7px;
+    border-radius: 5px;
+    margin-bottom: 18px;
 }
 
 .footer-brand p {
-    color: #b8cbca;
+    color: rgba(255, 255, 255, 0.65);
+    max-width: 330px;
     font-size: 14px;
-    max-width: 310px;
+    line-height: 1.8;
 }
+
+/* =========================
+   FOOTER COLUMNS
+========================= */
 
 .footer-column {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    align-items: flex-start;
+    gap: 9px;
 }
 
 .footer-column h3 {
-    font-size: 17px;
+    color: #ffffff;
     margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 700;
 }
 
 .footer-column a,
 .footer-column p {
-    color: #b8cbca;
+    color: rgba(255, 255, 255, 0.68);
     font-size: 14px;
+    line-height: 1.6;
+    transition: color 0.3s ease;
 }
 
 .footer-column a:hover {
-    color: #8fe3dc;
+    color: #72d8d1;
 }
 
+/* =========================
+   FOOTER BOTTOM
+========================= */
+
 .footer-bottom {
-    margin-top: 55px;
-    padding-top: 20px;
-
-    border-top: 1px solid rgba(255,255,255,0.1);
-
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 22px 0;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     gap: 20px;
-
-    color: #9eb4b3;
+    color: rgba(255, 255, 255, 0.55);
     font-size: 13px;
 }
 
@@ -1427,7 +1449,26 @@ select {
     gap: 20px;
 }
 
+.footer-bottom a {
+    color: rgba(255, 255, 255, 0.55);
+    transition: color 0.3s ease;
+}
 
+.footer-bottom a:hover {
+    color: #72d8d1;
+}
+
+/* =========================
+   FOOTER SOCIAL ICONS
+========================= */
+
+.footer .social-icon {
+    color: #ffffff;
+}
+
+.footer .social-icon:hover {
+    color: #72d8d1;
+}
 /* =====================================================
    TABLET
 ===================================================== */
