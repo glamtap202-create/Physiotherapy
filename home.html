@@ -115,61 +115,40 @@
 
 </div>
   <!-- ===== Main Navigation ===== -->
-<header class="navbar">
+  <header class="navbar">
+<div class="nav-wrapper">
 
-    <div class="nav-wrapper">
-
-        <!-- LOGO -->
-        <a href="home.html" class="brand">
-            <img
-                src="images/8.webp"
-                alt="Healing Vibes Clinic"
-                class="brand__logo"
-            >
-        </a>
-
-
-        <!-- MOBILE MENU BUTTON -->
-        <button
-            class="menu-toggle"
-            id="menuToggle"
-            type="button"
-            aria-label="Open navigation menu"
-            aria-expanded="false"
-            aria-controls="mainNav"
+    <!-- LOGO -->
+    <a href="home.html" class="brand">
+        <img 
+            src="images/8.webp"
+            alt="Healing Vibes Clinic"
+            class="brand__logo"
         >
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+    </a>
 
+    <!-- NAV -->
+    <nav class="nav" id="mainNav">
 
-        <!-- NAVIGATION -->
-        <nav class="nav" id="mainNav">
+        <a href="home.html" class="nav__link is-active">Home</a>
 
-            <!-- HOME -->
-            <a href="home.html" class="nav-link">
-                Home
-            </a>
+        <a href="about.html" class="nav__link">About Us</a>
+<!-- services -->
 
-
-            <!-- ABOUT -->
-            <a href="about.html" class="nav-link">
-                About Us
-            </a>
-
-
-            <!-- SERVICES -->
-            <div class="nav-dropdown">
+    <div class="nav-dropdown">
 
                 <button
                     type="button"
                     class="nav-link nav-link-drop"
                     id="servicesButton"
-                    aria-expanded="false"
                 >
-                    <span>Our Services</span>
-                    <span class="chevron"></span>
+
+                    Our Services
+
+                    <span class="chevron">
+                        ↓
+                    </span>
+
                 </button>
 
 
@@ -224,7 +203,7 @@
                     </a>
 
                     <a href="Gait.html">
-                        Gait &amp; Balance Training
+                        Gait & Balance Training
                     </a>
 
                     <a href="Neurological.html">
@@ -243,7 +222,7 @@
                         Kinetic Chain Therapy
                     </a>
 
-                    <a href="Strength.html">
+                    <a href="physiotherapy/Strength.html">
                         Strength Training
                     </a>
 
@@ -251,43 +230,41 @@
 
             </div>
 
+        <a href="gallery.html" class="nav__link">Gallery</a>
 
-            <!-- GALLERY -->
-            <a href="gallery.html" class="nav-link">
-                Gallery
-            </a>
+        <!-- <div class="nav__dropdown">
+            <button class="nav__link nav__link--drop">
+                Patient Education <span class="chevron"></span>
+            </button> -->
 
+            <!-- <div class="nav__dropdown-menu">
+                <a href="blog.html">Blog</a> -->
+                <!-- <a href="#">Exercise Library</a> -->
+                <!-- <a href="physiotherapy/recovery-guides.html">Recovery Guides</a>
+            </div>
+        </div> -->
 
-            <!-- CONTACT -->
-            <a href="contact.html" class="nav-link">
-                Contact Us
-            </a>
+        <!-- <div class="nav__dropdown"> -->
+           <a href="contact.html" class="nav__link">
+    Contact Us
+</a>
 
+            <!-- <div class="nav__dropdown-menu">
+                <a href="#">Careers</a> -->
+                <!-- <a href="#">Partnerships</a> -->
+            <!-- </div> -->
+        <!-- </div> -->
 
-            <!-- MOBILE APPOINTMENT -->
-            <a
-                href="appointment.html"
-                class="mobile-appointment"
-            >
-                Appointment
-                <span>→</span>
-            </a>
+    </nav>
 
-        </nav>
+    <!-- LOCATION -->
+    <a href="appointment.html" class="appointment-btn">
+    Appointment
+    <span class="appointment-arrow">→</span>
+</a>
 
-
-        <!-- DESKTOP APPOINTMENT -->
-        <a
-            href="appointment.html"
-            class="appointment-btn"
-        >
-            Appointment
-            <span class="appointment-arrow">→</span>
-        </a>
-
-    </div>
-
-</header>
+</div>
+  </header>
 
   <!-- ===== Hero / Banner Section ===== -->
   <section class="hero">
