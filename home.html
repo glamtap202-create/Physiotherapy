@@ -6,8 +6,8 @@
 <title>Healing Vibes Clinic</title>
 <link rel="stylesheet" href="css/longwave.css">
 <link rel="stylesheet" href="css/recovery-guides.css">
-<link rel="stylesheet" href="css/blog.css">
-<link rel="stylesheet" href="css/pain.css">
+<!-- <link rel="stylesheet" href="css/blog.css"> -->
+<!-- <link rel="stylesheet" href="css/pain.css"> -->
 <link rel="stylesheet" href="css/Chiropractic.css">
 <link rel="stylesheet" href="css/manual-therapy.css">
 <link rel="stylesheet" href="css/exercise-therapy.css">
@@ -115,40 +115,61 @@
 
 </div>
   <!-- ===== Main Navigation ===== -->
-  <header class="navbar">
-<div class="nav-wrapper">
+<header class="navbar">
 
-    <!-- LOGO -->
-    <a href="home.html" class="brand">
-        <img 
-            src="images/8.webp"
-            alt="Healing Vibes Clinic"
-            class="brand__logo"
+    <div class="nav-wrapper">
+
+        <!-- LOGO -->
+        <a href="home.html" class="brand">
+            <img
+                src="images/8.webp"
+                alt="Healing Vibes Clinic"
+                class="brand__logo"
+            >
+        </a>
+
+
+        <!-- MOBILE MENU BUTTON -->
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            type="button"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="mainNav"
         >
-    </a>
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
 
-    <!-- NAV -->
-    <nav class="nav" id="mainNav">
 
-        <a href="home.html" class="nav__link is-active">Home</a>
+        <!-- NAVIGATION -->
+        <nav class="nav" id="mainNav">
 
-        <a href="about.html" class="nav__link">About Us</a>
-<!-- services -->
+            <!-- HOME -->
+            <a href="home.html" class="nav-link">
+                Home
+            </a>
 
-    <div class="nav-dropdown">
+
+            <!-- ABOUT -->
+            <a href="about.html" class="nav-link">
+                About Us
+            </a>
+
+
+            <!-- SERVICES -->
+            <div class="nav-dropdown">
 
                 <button
                     type="button"
                     class="nav-link nav-link-drop"
                     id="servicesButton"
+                    aria-expanded="false"
                 >
-
-                    Our Services
-
-                    <span class="chevron">
-                        ↓
-                    </span>
-
+                    <span>Our Services</span>
+                    <span class="chevron"></span>
                 </button>
 
 
@@ -203,7 +224,7 @@
                     </a>
 
                     <a href="Gait.html">
-                        Gait & Balance Training
+                        Gait &amp; Balance Training
                     </a>
 
                     <a href="Neurological.html">
@@ -222,7 +243,7 @@
                         Kinetic Chain Therapy
                     </a>
 
-                    <a href="physiotherapy/Strength.html">
+                    <a href="Strength.html">
                         Strength Training
                     </a>
 
@@ -230,41 +251,43 @@
 
             </div>
 
-        <a href="gallery.html" class="nav__link">Gallery</a>
 
-        <!-- <div class="nav__dropdown">
-            <button class="nav__link nav__link--drop">
-                Patient Education <span class="chevron"></span>
-            </button> -->
+            <!-- GALLERY -->
+            <a href="gallery.html" class="nav-link">
+                Gallery
+            </a>
 
-            <!-- <div class="nav__dropdown-menu">
-                <a href="blog.html">Blog</a> -->
-                <!-- <a href="#">Exercise Library</a> -->
-                <!-- <a href="physiotherapy/recovery-guides.html">Recovery Guides</a>
-            </div>
-        </div> -->
 
-        <!-- <div class="nav__dropdown"> -->
-           <a href="contact.html" class="nav__link">
-    Contact Us
-</a>
+            <!-- CONTACT -->
+            <a href="contact.html" class="nav-link">
+                Contact Us
+            </a>
 
-            <!-- <div class="nav__dropdown-menu">
-                <a href="#">Careers</a> -->
-                <!-- <a href="#">Partnerships</a> -->
-            <!-- </div> -->
-        <!-- </div> -->
 
-    </nav>
+            <!-- MOBILE APPOINTMENT -->
+            <a
+                href="appointment.html"
+                class="mobile-appointment"
+            >
+                Appointment
+                <span>→</span>
+            </a>
 
-    <!-- LOCATION -->
-    <a href="appointment.html" class="appointment-btn">
-    Appointment
-    <span class="appointment-arrow">→</span>
-</a>
+        </nav>
 
-</div>
-  </header>
+
+        <!-- DESKTOP APPOINTMENT -->
+        <a
+            href="appointment.html"
+            class="appointment-btn"
+        >
+            Appointment
+            <span class="appointment-arrow">→</span>
+        </a>
+
+    </div>
+
+</header>
 
   <!-- ===== Hero / Banner Section ===== -->
   <section class="hero">

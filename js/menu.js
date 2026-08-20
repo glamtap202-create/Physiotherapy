@@ -1,164 +1,228 @@
-// ===== Mobile nav toggle =====
-const navToggle = document.getElementById('navToggle');
-const mainNav = document.getElementById('mainNav');
+/* =========================================================
+   RESPONSIVE NAVBAR
+========================================================= */
 
-navToggle.addEventListener('click', () => {
-  const isOpen = mainNav.classList.toggle('is-open');
-  navToggle.setAttribute('aria-expanded', String(isOpen));
-});
-
-// ===== Mobile dropdown toggle (tap to expand submenus) =====
-const dropdowns = document.querySelectorAll('.nav__dropdown');
-
-dropdowns.forEach((dropdown) => {
-  const trigger = dropdown.querySelector('.nav__link--drop');
-  trigger.addEventListener('click', () => {
-    // Only intercept tap-to-toggle behaviour on smaller screens
-    if (window.innerWidth <= 860) {
-      dropdown.classList.toggle('is-open');
-    }
-  });
-});
-
-// Close mobile nav when a link is clicked
-document.querySelectorAll('.nav__link:not(.nav__link--drop)').forEach((link) => {
-  link.addEventListener('click', () => {
-    mainNav.classList.remove('is-open');
-    navToggle.setAttribute('aria-expanded', 'false');
-  });
-});
-
-// Reset dropdown/menu state on resize back to desktop
-window.addEventListener('resize', () => {
-  if (window.innerWidth > 860) {
-    mainNav.classList.remove('is-open');
-    dropdowns.forEach((d) => d.classList.remove('is-open'));
-    navToggle.setAttribute('aria-expanded', 'false');
-  }
-});
-
-
-
-// Dropdown click-to-open (Our Offerings, Patient Education, Work With Us)
-document.querySelectorAll('.nav__dropdown > .nav__link--drop').forEach(function (btn) {
-  btn.addEventListener('click', function (e) {
-    e.preventDefault();
-    e.stopPropagation();
-
-    var dropdown = this.closest('.nav__dropdown');
-    var isOpen = dropdown.classList.contains('is-open');
-
-    // close any other open dropdown
-    document.querySelectorAll('.nav__dropdown.is-open').forEach(function (d) {
-      d.classList.remove('is-open');
-    });
-
-    if (!isOpen) {
-      dropdown.classList.add('is-open');
-    }
-  });
-});
-
-// click outside → close dropdown
-document.addEventListener('click', function (e) {
-  if (!e.target.closest('.nav__dropdown')) {
-    document.querySelectorAll('.nav__dropdown.is-open').forEach(function (d) {
-      d.classList.remove('is-open');
-    });
-  }
-});
-
-
-
-
-
-// """"""""""""""""""""""""""""""""""""""""
 document.addEventListener("DOMContentLoaded", function () {
 
     const menuToggle = document.getElementById("menuToggle");
     const mainNav = document.getElementById("mainNav");
-    const dropdown = document.querySelector(".nav__dropdown");
-    const dropdownButton = document.querySelector(".nav__link--drop");
+    const servicesButton = document.getElementById("servicesButton");
+    const servicesDropdown = document.querySelector(".nav-dropdown");
 
-    /* =========================
-       MOBILE MENU
-    ========================= */
+
+    /* =====================================================
+       MOBILE MENU TOGGLE
+    ===================================================== */
 
     if (menuToggle && mainNav) {
 
-        menuToggle.addEventListener("click", function () {
-
-            mainNav.classList.toggle("active");
-            menuToggle.classList.toggle("active");
-
-        });
-    }
-
-
-    /* =========================
-       SERVICES DROPDOWN
-    ========================= */
-
-    if (dropdown && dropdownButton) {
-
-        dropdownButton.addEventListener("click", function (event) {
+        menuToggle.addEventListener("click", function (event) {
 
             event.preventDefault();
+            event.stopPropagation();
 
-            dropdown.classList.toggle("active");
+            const isOpen = mainNav.classList.toggle("is-open");
 
+            menuToggle.classList.toggle("active", isOpen);
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                String(isOpen)
+            );
+
+            menuToggle.setAttribute(
+                "aria-label",
+                isOpen
+                    ? "Close navigation menu"
+                    : "Open navigation menu"
+            );
+
+            document.body.classList.toggle(
+                "menu-open",
+                isOpen
+            );
         });
     }
 
 
-    /* =========================
-       CLOSE MENU AFTER CLICK
-    ========================= */
+    /* =====================================================
+       SERVICES DROPDOWN
+    ===================================================== */
 
-    const navLinks = document.querySelectorAll(
-        ".nav a:not(.nav__link--drop)"
+    if (servicesButton && servicesDropdown) {
+
+        servicesButton.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+                event.stopPropagation();
+
+                const isOpen =
+                    servicesDropdown.classList.toggle("is-open");
+
+                servicesButton.setAttribute(
+                    "aria-expanded",
+                    String(isOpen)
+                );
+            }
+        );
+    }
+
+
+    /* =====================================================
+       CLOSE DROPDOWN OUTSIDE CLICK
+    ===================================================== */
+
+    document.addEventListener(
+        "click",
+        function (event) {
+
+            if (
+                servicesDropdown &&
+                !servicesDropdown.contains(event.target)
+            ) {
+
+                servicesDropdown.classList.remove("is-open");
+
+                if (servicesButton) {
+                    servicesButton.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+                }
+            }
+        }
     );
 
-    navLinks.forEach(function (link) {
 
-        link.addEventListener("click", function () {
+    /* =====================================================
+       CLOSE MOBILE MENU AFTER LINK CLICK
+    ===================================================== */
 
-            if (mainNav) {
-                mainNav.classList.remove("active");
+    const normalNavLinks =
+        document.querySelectorAll(
+            ".nav > a.nav-link, " +
+            ".nav-dropdown-menu a, " +
+            ".mobile-appointment"
+        );
+
+
+    normalNavLinks.forEach(function (link) {
+
+        link.addEventListener(
+            "click",
+            function () {
+
+                closeMobileMenu();
             }
-
-            if (menuToggle) {
-                menuToggle.classList.remove("active");
-            }
-
-            if (dropdown) {
-                dropdown.classList.remove("active");
-            }
-
-        });
-
+        );
     });
 
 
-    /* =========================
-       ACTIVE NAV LINK
-    ========================= */
+    /* =====================================================
+       CLOSE MENU FUNCTION
+    ===================================================== */
 
-    const currentPage = window.location.pathname.split("/").pop().toLowerCase();
+    function closeMobileMenu() {
 
-    navLinks.forEach(function (link) {
-
-        const linkPage = link
-            .getAttribute("href")
-            .split("/")
-            .pop()
-            .toLowerCase();
-
-        if (linkPage === currentPage) {
-            link.classList.add("is-active");
+        if (mainNav) {
+            mainNav.classList.remove("is-open");
         }
 
+        if (menuToggle) {
+
+            menuToggle.classList.remove("active");
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            menuToggle.setAttribute(
+                "aria-label",
+                "Open navigation menu"
+            );
+        }
+
+        if (servicesDropdown) {
+            servicesDropdown.classList.remove("is-open");
+        }
+
+        if (servicesButton) {
+            servicesButton.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+        }
+
+        document.body.classList.remove("menu-open");
+    }
+
+
+    /* =====================================================
+       CLOSE ON RESIZE
+    ===================================================== */
+
+    window.addEventListener(
+        "resize",
+        function () {
+
+            if (window.innerWidth > 860) {
+                closeMobileMenu();
+            }
+        }
+    );
+
+
+    /* =====================================================
+       ACTIVE PAGE
+    ===================================================== */
+
+    const currentPage =
+        window.location.pathname
+            .split("/")
+            .pop()
+            .split("?")[0]
+            .split("#")[0]
+            .toLowerCase();
+
+
+    const navPageLinks =
+        document.querySelectorAll(
+            ".nav > a.nav-link"
+        );
+
+
+    navPageLinks.forEach(function (link) {
+
+        const href = link.getAttribute("href");
+
+        if (!href) return;
+
+
+        const linkPage =
+            href
+                .split("/")
+                .pop()
+                .split("?")[0]
+                .split("#")[0]
+                .toLowerCase();
+
+
+        link.classList.remove("is-active");
+
+
+        if (
+            linkPage === currentPage ||
+            (
+                currentPage === "" &&
+                linkPage === "home.html"
+            )
+        ) {
+
+            link.classList.add("is-active");
+        }
     });
 
 });
-// """""""""""""""""""""""""""""
