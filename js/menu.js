@@ -63,7 +63,9 @@ if (track) {
   let current = 0;
   let autoTimer;
 
-  if (!dotsWrap || !prevBtn || !nextBtn) return;
+  if (!dotsWrap || !prevBtn || !nextBtn) {
+    return;
+  }
 
   // Build dots dynamically based on number of slides
   slides.forEach((_, i) => {
@@ -115,6 +117,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
+
+      if (!question) return;
 
         question.addEventListener('click', () => {
             const isOpen = item.classList.contains('active');
