@@ -63,39 +63,37 @@ if (track) {
   let current = 0;
   let autoTimer;
 
-  if (!dotsWrap || !prevBtn || !nextBtn) {
-    return;
-  }
-
-  // Build dots dynamically based on number of slides
-  slides.forEach((_, i) => {
+  if (dotsWrap && prevBtn && nextBtn) {
+    // Build dots dynamically based on number of slides
+    slides.forEach((_, i) => {
     const dot = document.createElement('button');
     if (i === 0) dot.classList.add('is-active');
     dot.addEventListener('click', () => goTo(i));
     dotsWrap.appendChild(dot);
-  });
-  const dots = dotsWrap.querySelectorAll('button');
+    });
+    const dots = dotsWrap.querySelectorAll('button');
 
-  function goTo(index) {
+    function goTo(index) {
     current = (index + slides.length) % slides.length;
     track.style.transform = `translateX(-${current * 100}%)`;
     dots.forEach(d => d.classList.remove('is-active'));
     dots[current].classList.add('is-active');
     restartAuto();
-  }
+    }
 
-  function next() { goTo(current + 1); }
-  function prev() { goTo(current - 1); }
+    function next() { goTo(current + 1); }
+    function prev() { goTo(current - 1); }
 
-  function restartAuto() {
+    function restartAuto() {
     clearInterval(autoTimer);
     autoTimer = setInterval(next, 4000); // 4 second par next slide
+    }
+
+    nextBtn.addEventListener('click', next);
+    prevBtn.addEventListener('click', prev);
+
+    restartAuto();
   }
-
-  nextBtn.addEventListener('click', next);
-  prevBtn.addEventListener('click', prev);
-
-  restartAuto();
 }
 
 
