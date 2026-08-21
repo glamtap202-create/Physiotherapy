@@ -1,0 +1,1046 @@
+/* =========================================================
+   RECOVERY GUIDES PAGE
+   Healing Vibes Clinic
+========================================================= */
+
+
+/* ================= RESET ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #17324d;
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+}
+
+.container {
+    width: min(1180px, 92%);
+    margin: auto;
+}
+
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.topbar {
+    background: #0d3147;
+    color: #ffffff;
+
+    min-height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 5%;
+}
+
+.topbar a {
+    color: #ffffff;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+.topbar a:hover {
+    color: #5bc0be;
+}
+
+.topbar__left,
+.topbar__center,
+.topbar__right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.topbar__right a {
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar {
+    background: #ffffff;
+    border-bottom: 1px solid #e9eef2;
+
+    position: relative;
+    z-index: 100;
+}
+
+.nav-wrapper {
+    width: min(1200px, 92%);
+    margin: auto;
+
+    min-height: 82px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.brand__logo {
+    width: 150px;
+    height: auto;
+    object-fit: contain;
+}
+
+
+/* ================= NAV ================= */
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 5px;
+
+    flex: 1;
+}
+
+.nav__link {
+    border: none;
+    background: transparent;
+
+    padding: 10px 14px;
+
+    color: #17324d;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.nav__link:hover {
+    color: #159b9b;
+}
+
+
+/* ================= DROPDOWN ================= */
+
+.nav__dropdown {
+    position: relative;
+}
+
+.nav__link--drop {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav__dropdown-menu {
+    position: absolute;
+
+    top: calc(100% + 8px);
+    left: 0;
+
+    width: 230px;
+
+    background: #ffffff;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.12);
+
+    border: 1px solid #e9eef2;
+
+    padding: 8px;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(10px);
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        visibility 0.25s ease;
+}
+
+.nav__dropdown:hover .nav__dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+.nav__dropdown-menu a {
+    display: block;
+
+    padding: 11px 13px;
+
+    border-radius: 5px;
+
+    color: #17324d;
+
+    font-size: 14px;
+
+    transition: 0.25s ease;
+}
+
+.nav__dropdown-menu a:hover {
+    background: #eefafa;
+    color: #159b9b;
+}
+
+
+/* ================= LOCATION ================= */
+
+.location-pin {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    background: #eefafa;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 18px;
+
+    transition: 0.3s ease;
+}
+
+.location-pin:hover {
+    background: #159b9b;
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.recovery-hero {
+    position: relative;
+
+    min-height: 470px;
+
+    display: flex;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6, 43, 61, 0.95),
+            rgba(6, 43, 61, 0.70),
+            rgba(6, 43, 61, 0.25)
+        ),
+        url("https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1600&q=85");
+
+    background-size: cover;
+    background-position: center;
+
+    overflow: hidden;
+}
+
+.recovery-hero__overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(6, 43, 61, 0.75),
+            rgba(6, 43, 61, 0.20)
+        );
+}
+
+.recovery-hero__content {
+    position: relative;
+
+    width: min(1180px, 92%);
+
+    margin: auto;
+
+    color: #ffffff;
+
+    z-index: 2;
+}
+
+.hero-tag {
+    display: inline-block;
+
+    margin-bottom: 15px;
+
+    padding: 7px 15px;
+
+    border: 1px solid rgba(255, 255, 255, 0.5);
+
+    border-radius: 50px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+}
+
+.recovery-hero h1 {
+    max-width: 700px;
+
+    font-size: clamp(42px, 6vw, 70px);
+
+    line-height: 1.08;
+
+    margin-bottom: 22px;
+
+    font-weight: 700;
+}
+
+.recovery-hero p {
+    max-width: 650px;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    color: rgba(255, 255, 255, 0.92);
+
+    margin-bottom: 28px;
+}
+
+.hero-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 14px;
+}
+
+.hero-breadcrumb a {
+    color: #ffffff;
+}
+
+.hero-breadcrumb a:hover {
+    color: #65d2cf;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.recovery-intro {
+    padding: 85px 0 45px;
+
+    background: #ffffff;
+}
+
+.section-heading {
+    max-width: 760px;
+    margin: auto;
+
+    text-align: center;
+}
+
+.section-tag {
+    display: inline-block;
+
+    color: #159b9b;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 12px;
+}
+
+.section-heading h2 {
+    color: #12344b;
+
+    font-size: clamp(32px, 4vw, 48px);
+
+    line-height: 1.2;
+
+    margin-bottom: 18px;
+}
+
+.section-heading p {
+    color: #687b8b;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   GUIDES SECTION
+========================================================= */
+
+.guides-section {
+    padding: 50px 0 100px;
+
+    background: #f5f9fa;
+}
+
+.guides-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 28px;
+}
+
+
+/* ================= GUIDE CARD ================= */
+
+.guide-card {
+    background: #ffffff;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    border: 1px solid #e7eef1;
+
+    box-shadow:
+        0 8px 30px rgba(22, 62, 81, 0.06);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.guide-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 20px 45px rgba(22, 62, 81, 0.13);
+}
+
+
+/* ================= IMAGE ================= */
+
+.guide-card__image {
+    position: relative;
+
+    height: 235px;
+
+    overflow: hidden;
+}
+
+.guide-card__image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.5s ease;
+}
+
+.guide-card:hover .guide-card__image img {
+    transform: scale(1.06);
+}
+
+.guide-category {
+    position: absolute;
+
+    top: 16px;
+    left: 16px;
+
+    background: #159b9b;
+
+    color: #ffffff;
+
+    padding: 7px 13px;
+
+    border-radius: 50px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* ================= CONTENT ================= */
+
+.guide-card__content {
+    padding: 25px;
+}
+
+.guide-time {
+    color: #159b9b;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+.guide-card h3 {
+    color: #12344b;
+
+    font-size: 21px;
+
+    line-height: 1.35;
+
+    margin: 10px 0 12px;
+}
+
+.guide-card p {
+    color: #6d7d89;
+
+    font-size: 14px;
+
+    line-height: 1.75;
+
+    margin-bottom: 20px;
+}
+
+.guide-link {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #159b9b;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    transition: 0.3s ease;
+}
+
+.guide-link span {
+    transition: transform 0.3s ease;
+}
+
+.guide-link:hover {
+    color: #0b7777;
+}
+
+.guide-link:hover span {
+    transform: translateX(5px);
+}
+
+
+/* =========================================================
+   RECOVERY PROCESS
+========================================================= */
+
+.recovery-process {
+    padding: 100px 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0b3448,
+            #126b76
+        );
+
+    color: #ffffff;
+}
+
+.section-heading.light h2 {
+    color: #ffffff;
+}
+
+.section-heading.light p {
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.section-heading.light .section-tag {
+    color: #77e0dc;
+}
+
+
+/* ================= PROCESS GRID ================= */
+
+.process-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 25px;
+
+    margin-top: 60px;
+}
+
+.process-item {
+    padding: 30px;
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    border-radius: 14px;
+
+    background: rgba(255, 255, 255, 0.07);
+
+    transition: 0.3s ease;
+}
+
+.process-item:hover {
+    transform: translateY(-5px);
+
+    background: rgba(255, 255, 255, 0.11);
+}
+
+.process-number {
+    font-size: 30px;
+
+    font-weight: 800;
+
+    color: #78ddd8;
+
+    margin-bottom: 15px;
+}
+
+.process-item h3 {
+    font-size: 21px;
+
+    margin-bottom: 10px;
+}
+
+.process-item p {
+    color: rgba(255, 255, 255, 0.78);
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.recovery-cta {
+    padding: 80px 0;
+
+    background: #ffffff;
+}
+
+.cta-box {
+    background: #eefafa;
+
+    border-radius: 20px;
+
+    padding: 50px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 40px;
+}
+
+.cta-box h2 {
+    color: #12344b;
+
+    font-size: clamp(28px, 4vw, 40px);
+
+    line-height: 1.2;
+
+    margin-bottom: 12px;
+
+    max-width: 650px;
+}
+
+.cta-box p {
+    color: #6a7b87;
+
+    max-width: 650px;
+}
+
+.cta-button {
+    flex-shrink: 0;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    background: #159b9b;
+
+    color: #ffffff;
+
+    padding: 15px 24px;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    transition: 0.3s ease;
+}
+
+.cta-button:hover {
+    background: #0c7778;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.recovery-footer {
+    background: #092c40;
+
+    color: #ffffff;
+
+    padding: 70px 0 0;
+}
+
+.footer-content {
+    display: grid;
+
+    grid-template-columns:
+        2fr 1fr 1fr;
+
+    gap: 60px;
+
+    padding-bottom: 50px;
+}
+
+.footer-content h3 {
+    font-size: 24px;
+
+    margin-bottom: 15px;
+}
+
+.footer-content h4 {
+    font-size: 16px;
+
+    margin-bottom: 18px;
+
+    color: #76d8d4;
+}
+
+.footer-content p {
+    color: rgba(255, 255, 255, 0.68);
+
+    max-width: 480px;
+
+    line-height: 1.8;
+
+    font-size: 14px;
+}
+
+.footer-content a {
+    display: block;
+
+    color: rgba(255, 255, 255, 0.72);
+
+    font-size: 14px;
+
+    margin-bottom: 10px;
+
+    transition: 0.3s ease;
+}
+
+.footer-content a:hover {
+    color: #76d8d4;
+
+    padding-left: 4px;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+    padding: 20px 0;
+
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: rgba(255, 255, 255, 0.55);
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .nav-wrapper {
+        gap: 15px;
+    }
+
+    .brand__logo {
+        width: 125px;
+    }
+
+    .nav__link {
+        padding: 8px 8px;
+
+        font-size: 13px;
+    }
+
+    .guides-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .process-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .topbar {
+        padding: 8px 4%;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 8px;
+    }
+
+    .topbar__left,
+    .topbar__center,
+    .topbar__right {
+        gap: 10px;
+    }
+
+
+    /* NAV */
+
+    .nav-wrapper {
+        min-height: auto;
+
+        padding: 15px 0;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    .brand {
+        width: 100%;
+
+        justify-content: center;
+    }
+
+    .brand__logo {
+        width: 140px;
+    }
+
+    .nav {
+        width: 100%;
+
+        flex-wrap: wrap;
+
+        gap: 2px;
+    }
+
+    .nav__link {
+        padding: 8px 9px;
+
+        font-size: 12px;
+    }
+
+    .location-pin {
+        display: none;
+    }
+
+
+    /* HERO */
+
+    .recovery-hero {
+        min-height: 430px;
+
+        background-position: center;
+    }
+
+    .recovery-hero__content {
+        text-align: center;
+    }
+
+    .recovery-hero h1 {
+        font-size: 42px;
+    }
+
+    .recovery-hero p {
+        font-size: 15px;
+    }
+
+    .hero-breadcrumb {
+        justify-content: center;
+    }
+
+
+    /* INTRO */
+
+    .recovery-intro {
+        padding: 65px 0 30px;
+    }
+
+
+    /* CARDS */
+
+    .guides-section {
+        padding: 40px 0 70px;
+    }
+
+    .guides-grid {
+        grid-template-columns: 1fr;
+
+        gap: 22px;
+    }
+
+
+    /* PROCESS */
+
+    .recovery-process {
+        padding: 70px 0;
+    }
+
+    .process-grid {
+        grid-template-columns: 1fr;
+
+        margin-top: 40px;
+    }
+
+
+    /* CTA */
+
+    .recovery-cta {
+        padding: 60px 0;
+    }
+
+    .cta-box {
+        padding: 30px 25px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+
+    /* FOOTER */
+
+    .footer-content {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+
+        padding-bottom: 40px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .topbar {
+        font-size: 12px;
+    }
+
+    .topbar a {
+        font-size: 12px;
+    }
+
+    .recovery-hero {
+        min-height: 390px;
+    }
+
+    .recovery-hero h1 {
+        font-size: 34px;
+    }
+
+    .recovery-hero p {
+        font-size: 14px;
+    }
+
+    .section-heading h2 {
+        font-size: 30px;
+    }
+
+    .guide-card__image {
+        height: 210px;
+    }
+
+    .guide-card__content {
+        padding: 21px;
+    }
+
+    .guide-card h3 {
+        font-size: 19px;
+    }
+
+    .cta-box h2 {
+        font-size: 28px;
+    }
+
+    .cta-button {
+        width: 100%;
+
+        justify-content: center;
+    }
+
+}
