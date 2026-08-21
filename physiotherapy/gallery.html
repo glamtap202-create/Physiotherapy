@@ -1228,6 +1228,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const button =
             item.querySelector(".view-btn");
 
+        if (!button) return;
 
         button.addEventListener("click", function (event) {
 
@@ -1249,38 +1250,20 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    lightboxClose.addEventListener(
-        "click",
-        closeLightbox
-    );
+    if (lightbox && lightboxClose && lightboxNext && lightboxPrev && lightboxImage) {
+        lightboxClose.addEventListener("click", closeLightbox);
+        lightboxNext.addEventListener("click", showNext);
+        lightboxPrev.addEventListener("click", showPrevious);
 
-
-    lightboxNext.addEventListener(
-        "click",
-        showNext
-    );
-
-
-    lightboxPrev.addEventListener(
-        "click",
-        showPrevious
-    );
-
-
-    lightbox.addEventListener("click", function (event) {
-
-        if (event.target === lightbox) {
-
-            closeLightbox();
-
-        }
-
-    });
+        lightbox.addEventListener("click", function (event) {
+            if (event.target === lightbox) closeLightbox();
+        });
+    }
 
 
     document.addEventListener("keydown", function (event) {
 
-        if (!lightbox.classList.contains("show")) {
+        if (!lightbox || !lightbox.classList.contains("show")) {
             return;
         }
 
