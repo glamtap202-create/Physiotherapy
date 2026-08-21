@@ -63,6 +63,8 @@ if (track) {
   let current = 0;
   let autoTimer;
 
+  if (!dotsWrap || !prevBtn || !nextBtn) return;
+
   // Build dots dynamically based on number of slides
   slides.forEach((_, i) => {
     const dot = document.createElement('button');
