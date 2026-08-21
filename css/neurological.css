@@ -98,6 +98,7 @@ select {
     align-items: center;
     justify-content: space-between;
     gap: 25px;
+    flex-wrap: nowrap;
 }
 
 .brand-logo {
@@ -1018,6 +1019,22 @@ select {
     color: #718582;
     font-size: 14px;
 }
+.info-card,
+.technique-card,
+.benefit-item,
+.process-card {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.info-card.visible,
+.technique-card.visible,
+.benefit-item.visible,
+.process-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 
 
 /* =====================================================
@@ -1492,26 +1509,39 @@ select {
 
 
 @media (max-width: 850px) {
+.topbar-left {
+    display: none;
+}
 
-    .topbar-left {
-        display: none;
-    }
+.topbar-inner {
+    justify-content: center;
+}
 
-    .topbar-inner {
-        justify-content: center;
-    }
+.nav {
+    display: none;
+}
 
-    .nav {
-        display: none;
-    }
+.nav-wrapper {
+    flex-wrap: nowrap;
+}
 
-    .appointment-btn {
-        display: none;
-    }
+.brand {
+    order: 2;
+}
 
-    .menu-toggle {
-        display: block;
-    }
+.appointment-btn {
+    display: flex;
+    order: 3;
+    padding: 8px 12px;
+    font-size: 12px;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.menu-toggle {
+    display: flex;
+    order: 1;
+}
 
     .mobile-menu {
         position: fixed;

@@ -26,7 +26,9 @@
    TABLET
 ========================================= */
 
-@media (max-width: 992px) {
+
+
+  @media (max-width: 992px) {
 
     .nav-wrapper {
         position: relative;
@@ -93,10 +95,6 @@
     .nav-dropdown-menu a {
         display: block;
         padding: 10px;
-    }
-
-    .appointment-btn {
-        display: none;
     }
 }
 
@@ -224,8 +222,8 @@
     .navbar .nav-wrapper {
         width: 100%;
         max-width: none;
-        height: 145px;
-        min-height: 145px;
+        height: 96px;
+        min-height: 96px;
         margin: 0;
         padding: 0 28px;
         position: relative;
@@ -234,8 +232,9 @@
 
     .navbar .brand {
         position: absolute;
-        top: 19px;
-        left: 50%;
+        top: 50%;
+        left: auto;
+        right: 15px;
         margin: 0;
         transform: translateX(-50%);
     }
@@ -251,11 +250,11 @@
         align-items: center;
         gap: 8px;
         position: absolute;
-        top: 77px;
+        top: 50%;
         left: 50%;
         margin: 0;
         padding: 10px 14px;
-        transform: translateX(-50%);
+        transform: none;
         font-size: 12px;
         white-space: nowrap;
     }
@@ -269,8 +268,9 @@
         background: transparent;
         gap: 0;
         position: absolute;
-        top: 79px;
-        right: 15px;
+        top: 50%;
+        right: auto;
+        left: 15px;
         margin: 0;
         z-index: 1001;
         flex-shrink: 0;
@@ -289,10 +289,10 @@
 .mobile-menu {
     display: none;
     position: fixed;
-    top: 145px;
+    top: 96px;
     left: 0;
     width: 100%;
-    max-height: calc(100vh - 145px);
+    max-height: calc(100vh - 96px);
     overflow-y: auto;
     z-index: 999;
     padding: 15px 20px 25px;
@@ -303,15 +303,15 @@
 
 .mobile-menu.show { display: block; }
 
-@media (max-width: 800px) {
+/* @media (max-width: 800px) {
     .navbar .menu-toggle {
         position: absolute !important;
-        top: 79px !important;
-        right: 15px !important;
-        left: auto !important;
+        top: 50% !important;
+        right: auto !important;
+        left: 15px !important;
         margin: 0 !important;
     }
-}
+} */
 
 .mobile-menu > a,
 .mobile-services-btn {
