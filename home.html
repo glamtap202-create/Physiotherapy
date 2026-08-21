@@ -18,6 +18,29 @@
 <link rel="stylesheet" href="css/about.css">
 <link rel="stylesheet" href="css/gallery.css">
 <link rel="stylesheet" href="css/responsive.css">
+<style>
+  @media (max-width: 850px) {
+    .navbar .menu-toggle {
+      display: flex !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      position: relative;
+      z-index: 1001;
+      flex-shrink: 0;
+    }
+
+    .navbar .menu-toggle span {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      width: 25px !important;
+      height: 2px !important;
+      margin: 5px auto !important;
+      flex-shrink: 0 !important;
+      background: var(--forest-dark) !important;
+    }
+  }
+</style>
 <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -116,155 +139,83 @@
 </div>
   <!-- ===== Main Navigation ===== -->
   <header class="navbar">
-<div class="nav-wrapper">
+    <div class="container nav-wrapper">
+      <a href="home.html" class="brand">
+        <img src="images/8.webp" alt="Healing Vibes Clinic" class="brand-logo">
+      </a>
 
-    <!-- LOGO -->
-    <a href="home.html" class="brand">
-        <img 
-            src="images/8.webp"
-            alt="Healing Vibes Clinic"
-            class="brand__logo"
-        >
-    </a>
+      <nav class="nav" id="mainNav">
+        <a href="./home.html" class="nav-link">Home</a>
+        <a href="./about.html" class="nav-link">About Us</a>
+        <div class="nav-dropdown">
+          <button type="button" class="nav-link nav-dropdown-btn" id="serviceDropdownBtn" aria-expanded="false">
+            Our Services <span class="chevron"></span>
+          </button>
+          <div class="nav-dropdown-menu">
+            <a href="manual-therapy.html">Manual Therapy</a>
+            <a href="exercise-therapy.html">Exercise Therapy</a>
+            <a href="Electrotherapy.html">Electrotherapy</a>
+            <a href="Longwave.html">Longwave Therapy</a>
+            <a href="Laser.html">Laser Therapy</a>
+            <a href="Taping.html">Taping Therapy</a>
+            <a href="Drycupping.html">Dry Cupping Therapy</a>
+            <a href="DryNeedling.html">Dry Needling Therapy</a>
+            <a href="Painmanagement.html">Pain Management Therapy</a>
+            <a href="rehabilitation.html">Pre/Post Surgical Rehabilitation</a>
+            <a href="injury.html">Sports Injury Management</a>
+            <a href="Geriatric.html">Geriatric Rehabilitation</a>
+            <a href="Gait.html">Gait and Balance Training</a>
+            <a href="Neurological.html">Neurological Rehabilitation</a>
+            <a href="Osteopathy.html">Osteopathic Rehabilitation</a>
+            <a href="Chiropractic.html">Chiropractic</a>
+            <a href="Kineticchain.html">Kinetic Chain Therapy</a>
+            <a href="Strength.html">Strength Training</a>
+          </div>
+        </div>
+        <a href="./gallery.html" class="nav-link">Gallery</a>
+        <a href="./contact.html" class="nav-link">Contact Us</a>
+      </nav>
 
-    <!-- NAV -->
-    <nav class="nav" id="mainNav">
+      <a href="./appointment.html" class="appointment-btn">Appointment <span>→</span></a>
 
-        <a href="home.html" class="nav__link is-active">Home</a>
-
-        <a href="about.html" class="nav__link">About Us</a>
-<!-- services -->
-
-    <div class="nav-dropdown">
-
-                <button
-                    type="button"
-                    class="nav-link nav-link-drop"
-                    id="servicesButton"
-                >
-
-                    Our Services
-
-                    <span class="chevron">
-                        ↓
-                    </span>
-
-                </button>
-
-
-                <div class="nav-dropdown-menu">
-
-                    <a href="manual-therapy.html">
-                        Manual Therapy
-                    </a>
-
-                    <a href="exercise-therapy.html">
-                        Exercise Therapy
-                    </a>
-
-                    <a href="Electrotherapy.html">
-                        Electrotherapy
-                    </a>
-
-                    <a href="Longwave.html">
-                        Longwave Therapy
-                    </a>
-
-                    <a href="Laser.html">
-                        Laser Therapy
-                    </a>
-
-                    <a href="Taping.html">
-                        Taping Therapy
-                    </a>
-
-                    <a href="Drycupping.html">
-                        Dry Cupping Therapy
-                    </a>
-
-                    <a href="DryNeedling.html">
-                        Dry Needling Therapy
-                    </a>
-
-                    <a href="Painmanagement.html">
-                        Pain Management Therapy
-                    </a>
-
-                    <a href="rehabilitation.html">
-                        Pre/Post Surgical Rehabilitation
-                    </a>
-
-                    <a href="injury.html">
-                        Sports Injury Management
-                    </a>
-
-                    <a href="Geriatric.html">
-                        Geriatric Rehabilitation
-                    </a>
-
-                    <a href="Gait.html">
-                        Gait & Balance Training
-                    </a>
-
-                    <a href="Neurological.html">
-                        Neurological Rehabilitation
-                    </a>
-
-                    <a href="Osteopathy.html">
-                        Osteopathy Rehabilitation
-                    </a>
-
-                    <a href="Chiropractic.html">
-                        Chiropractic
-                    </a>
-
-                    <a href="Kineticchain.html">
-                        Kinetic Chain Therapy
-                    </a>
-
-                    <a href="physiotherapy/Strength.html">
-                        Strength Training
-                    </a>
-
-                </div>
-
-            </div>
-
-        <a href="gallery.html" class="nav__link">Gallery</a>
-
-        <!-- <div class="nav__dropdown">
-            <button class="nav__link nav__link--drop">
-                Patient Education <span class="chevron"></span>
-            </button> -->
-
-            <!-- <div class="nav__dropdown-menu">
-                <a href="blog.html">Blog</a> -->
-                <!-- <a href="#">Exercise Library</a> -->
-                <!-- <a href="physiotherapy/recovery-guides.html">Recovery Guides</a>
-            </div>
-        </div> -->
-
-        <!-- <div class="nav__dropdown"> -->
-           <a href="contact.html" class="nav__link">
-    Contact Us
-</a>
-
-            <!-- <div class="nav__dropdown-menu">
-                <a href="#">Careers</a> -->
-                <!-- <a href="#">Partnerships</a> -->
-            <!-- </div> -->
-        <!-- </div> -->
-
-    </nav>
-
-    <!-- LOCATION -->
-    <a href="appointment.html" class="appointment-btn">
-    Appointment
-    <span class="appointment-arrow">→</span>
-</a>
-
-</div>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
   </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="home.html">Home</a>
+    <a href="about.html">About Us</a>
+    <button type="button" class="mobile-services-btn" id="mobileServicesBtn">
+      <span>Our Services</span><span class="mobile-arrow">+</span>
+    </button>
+    <div class="mobile-services" id="mobileServices">
+      <a href="manual-therapy.html">Manual Therapy</a>
+      <a href="exercise-therapy.html">Exercise Therapy</a>
+      <a href="Electrotherapy.html">Electrotherapy</a>
+      <a href="Longwave.html">Longwave Therapy</a>
+      <a href="Laser.html">Laser Therapy</a>
+      <a href="Taping.html">Taping Therapy</a>
+      <a href="Drycupping.html">Dry Cupping Therapy</a>
+      <a href="DryNeedling.html">Dry Needling Therapy</a>
+      <a href="Painmanagement.html">Pain Management Therapy</a>
+      <a href="rehabilitation.html">Pre/Post Surgical Rehabilitation</a>
+      <a href="injury.html">Sports Injury Management</a>
+      <a href="Geriatric.html">Geriatric Rehabilitation</a>
+      <a href="Gait.html">Gait and Balance Training</a>
+      <a href="Neurological.html">Neurological Rehabilitation</a>
+      <a href="Osteopathy.html">Osteopathic Rehabilitation</a>
+      <a href="Chiropractic.html">Chiropractic</a>
+      <a href="Kineticchain.html">Kinetic Chain Therapy</a>
+      <a href="Strength.html">Strength Training</a>
+    </div>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="appointment.html" class="mobile-appointment">Book Appointment</a>
+  </div>
 
   <!-- ===== Hero / Banner Section ===== -->
   <section class="hero">
@@ -1371,6 +1322,54 @@ Your trusted destination for advanced physiotherapy, orthopedic rehabilitation, 
 </script>
 
 <script src="js/script.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.getElementById("menuToggle");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const mobileServicesBtn = document.getElementById("mobileServicesBtn");
+    const mobileServices = document.getElementById("mobileServices");
+    const serviceDropdownBtn = document.getElementById("serviceDropdownBtn");
+    const serviceDropdown = document.querySelector(".nav-dropdown");
+
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener("click", function () {
+        const isOpen = mobileMenu.classList.toggle("show");
+        menuToggle.classList.toggle("active", isOpen);
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+      });
+    }
+
+    if (mobileServicesBtn && mobileServices) {
+      mobileServicesBtn.addEventListener("click", function () {
+        const isOpen = mobileServices.classList.toggle("show");
+        mobileServicesBtn.classList.toggle("open", isOpen);
+      });
+    }
+
+    if (serviceDropdownBtn && serviceDropdown) {
+      serviceDropdownBtn.addEventListener("click", function (event) {
+        event.stopPropagation();
+        const isOpen = serviceDropdown.classList.toggle("open");
+        serviceDropdownBtn.setAttribute("aria-expanded", String(isOpen));
+      });
+    }
+
+    document.addEventListener("click", function (event) {
+      if (serviceDropdown && !serviceDropdown.contains(event.target)) {
+        serviceDropdown.classList.remove("open");
+        serviceDropdownBtn.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    mobileMenu.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        mobileMenu.classList.remove("show");
+        menuToggle.classList.remove("active");
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+  });
+</script>
 <script src="js/menu.js"></script>
 </body>
 </html>

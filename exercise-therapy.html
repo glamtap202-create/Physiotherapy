@@ -32,6 +32,7 @@
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/exercise-therapy.css">
+<link rel="stylesheet" href="css/service-navbar.css">
 </head>
 <body>
 
@@ -137,6 +138,12 @@
             class="brand__logo"
         >
     </a>
+
+    <button type="button" class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mainNav">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
 
     <!-- NAV -->
     <nav class="nav" id="mainNav">
@@ -256,7 +263,99 @@
 </a>
 
 </div>
-  </header>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="home.html">Home</a>
+        <a href="about.html">About Us</a>
+        <button type="button" class="mobile-services-btn" id="mobileServicesBtn">
+            <span>Our Services</span><span class="mobile-arrow">+</span>
+        </button>
+        <div class="mobile-services" id="mobileServices">
+            <a href="manual-therapy.html">Manual Therapy</a>
+            <a href="exercise-therapy.html">Exercise Therapy</a>
+            <a href="Electrotherapy.html">Electrotherapy</a>
+            <a href="Longwave.html">Longwave Therapy</a>
+            <a href="Laser.html">Laser Therapy</a>
+            <a href="Taping.html">Taping Therapy</a>
+            <a href="Drycupping.html">Dry Cupping Therapy</a>
+            <a href="DryNeedling.html">Dry Needling Therapy</a>
+            <a href="Painmanagement.html">Pain Management Therapy</a>
+            <a href="rehabilitation.html">Pre/Post Surgical Rehabilitation</a>
+            <a href="injury.html">Sports Injury Management</a>
+            <a href="Geriatric.html">Geriatric Rehabilitation</a>
+            <a href="Gait.html">Gait and Balance Training</a>
+            <a href="Neurological.html">Neurological Rehabilitation</a>
+            <a href="Osteopathy.html">Osteopathic Rehabilitation</a>
+            <a href="Chiropractic.html">Chiropractic</a>
+            <a href="Kineticchain.html">Kinetic Chain Therapy</a>
+            <a href="Strength.html">Strength Training</a>
+        </div>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="appointment.html" class="mobile-appointment">Book Appointment</a>
+    </div>
+
+    <style>
+        @media (max-width: 850px) {
+            .navbar .menu-toggle {
+                display: flex !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                position: relative;
+                z-index: 1001;
+                flex-shrink: 0;
+            }
+
+            .navbar .menu-toggle span {
+                display: block !important;
+                width: 25px !important;
+                height: 2px !important;
+                margin: 5px auto !important;
+                flex-shrink: 0 !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                background: var(--forest-dark) !important;
+            }
+
+            .mobile-menu {
+                display: none;
+                position: fixed;
+                top: 145px;
+                left: 0;
+                width: 100%;
+                max-height: calc(100vh - 145px);
+                overflow-y: auto;
+                z-index: 999;
+                padding: 15px 20px 25px;
+                background: var(--white);
+                box-shadow: 0 12px 24px rgba(0, 0, 0, .12);
+            }
+
+            .mobile-menu.show { display: block; }
+
+            .mobile-menu > a,
+            .mobile-services-btn {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 14px 8px;
+                border: 0;
+                border-bottom: 1px solid rgba(13, 115, 119, .08);
+                background: transparent;
+                color: var(--ink);
+                text-align: left;
+                font-size: 15px;
+                font-weight: 600;
+            }
+
+            .mobile-services { display: none; padding-left: 12px; background: rgba(13, 115, 119, .03); }
+            .mobile-services.show { display: block; }
+            .mobile-services a { display: block; padding: 11px 8px; color: var(--text); font-size: 14px; }
+            .mobile-appointment { display: flex !important; justify-content: center !important; margin-top: 18px; background: var(--forest) !important; color: var(--white) !important; border-radius: var(--radius-pill); }
+        }
+    </style>
 
 
   <!-- ================= HERO ================= -->
@@ -682,5 +781,47 @@
 </footer>
 
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.getElementById("menuToggle");
+        const mobileMenu = document.getElementById("mobileMenu");
+        const mobileServicesBtn = document.getElementById("mobileServicesBtn");
+        const mobileServices = document.getElementById("mobileServices");
+        const serviceDropdown = document.querySelector(".nav-dropdown");
+        const servicesButton = document.getElementById("servicesButton");
+
+        if (menuToggle && mobileMenu) {
+            menuToggle.addEventListener("click", function () {
+                const isOpen = mobileMenu.classList.toggle("show");
+                menuToggle.classList.toggle("active", isOpen);
+                menuToggle.setAttribute("aria-expanded", String(isOpen));
+            });
+        }
+
+        if (mobileServicesBtn && mobileServices) {
+            mobileServicesBtn.addEventListener("click", function () {
+                const isOpen = mobileServices.classList.toggle("show");
+                mobileServicesBtn.classList.toggle("open", isOpen);
+            });
+        }
+
+        if (servicesButton && serviceDropdown) {
+            servicesButton.addEventListener("click", function (event) {
+                event.stopPropagation();
+                serviceDropdown.classList.toggle("open");
+            });
+        }
+
+        if (mobileMenu) {
+            mobileMenu.querySelectorAll("a").forEach(function (link) {
+                link.addEventListener("click", function () {
+                    mobileMenu.classList.remove("show");
+                    menuToggle.classList.remove("active");
+                    menuToggle.setAttribute("aria-expanded", "false");
+                });
+            });
+        }
+    });
+</script>
 </body>
 </html>

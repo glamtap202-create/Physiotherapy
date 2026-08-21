@@ -21,6 +21,7 @@
      <!--  -->
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/Electrotherapy.css">
+<link rel="stylesheet" href="css/service-navbar.css">
 </head>
 
 <body>
@@ -128,6 +129,12 @@
             class="brand__logo"
         >
     </a>
+
+    <button type="button" class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mainNav">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
 
     <!-- NAV -->
     <nav class="nav" id="mainNav">
@@ -267,6 +274,16 @@
 
 </div>
   </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="home.html">Home</a>
+        <a href="about.html">About Us</a>
+        <button type="button" class="mobile-services-btn" id="mobileServicesBtn"><span>Our Services</span><span class="mobile-arrow">+</span></button>
+        <div class="mobile-services" id="mobileServices">
+            <a href="manual-therapy.html">Manual Therapy</a><a href="exercise-therapy.html">Exercise Therapy</a><a href="Electrotherapy.html">Electrotherapy</a><a href="Longwave.html">Longwave Therapy</a><a href="Laser.html">Laser Therapy</a><a href="Taping.html">Taping Therapy</a><a href="Drycupping.html">Dry Cupping Therapy</a><a href="DryNeedling.html">Dry Needling Therapy</a><a href="Painmanagement.html">Pain Management Therapy</a><a href="rehabilitation.html">Pre/Post Surgical Rehabilitation</a><a href="injury.html">Sports Injury Management</a><a href="Geriatric.html">Geriatric Rehabilitation</a><a href="Gait.html">Gait and Balance Training</a><a href="Neurological.html">Neurological Rehabilitation</a><a href="Osteopathy.html">Osteopathic Rehabilitation</a><a href="Chiropractic.html">Chiropractic</a><a href="Kineticchain.html">Kinetic Chain Therapy</a><a href="Strength.html">Strength Training</a>
+        </div>
+        <a href="gallery.html">Gallery</a><a href="contact.html">Contact Us</a><a href="appointment.html" class="mobile-appointment">Book Appointment</a>
+    </div>
 
 
 <!-- ================= HERO ================= -->
@@ -909,5 +926,18 @@
 
 <script src="js/electrotherapy.js"></script>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.getElementById("menuToggle");
+    const menu = document.getElementById("mobileMenu");
+    const servicesButton = document.getElementById("mobileServicesBtn");
+    const services = document.getElementById("mobileServices");
+    if (toggle && menu) toggle.addEventListener("click", function (event) {
+        event.stopPropagation(); const open = menu.classList.toggle("show"); toggle.classList.toggle("active", open); toggle.setAttribute("aria-expanded", String(open));
+    });
+    if (servicesButton && services) servicesButton.addEventListener("click", function () { const open = services.classList.toggle("show"); servicesButton.classList.toggle("open", open); });
+    if (menu) menu.querySelectorAll("a").forEach(link => link.addEventListener("click", function () { menu.classList.remove("show"); toggle.classList.remove("active"); toggle.setAttribute("aria-expanded", "false"); }));
+});
+</script>
 </body>
 </html>

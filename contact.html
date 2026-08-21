@@ -15,6 +15,29 @@
 <link rel="stylesheet" href="css/longwave.css">   <!-- ➕ ADD THIS LINE -->
 <link rel="stylesheet" href="css/responsive.css">
 <link rel="stylesheet" href="css/contact.css">
+<style>
+    @media (max-width: 850px) {
+        .navbar .menu-toggle {
+            display: flex !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            position: relative;
+            z-index: 1001;
+            flex-shrink: 0;
+        }
+
+        .navbar .menu-toggle span {
+            display: block !important;
+            width: 25px !important;
+            height: 2px !important;
+            margin: 5px auto !important;
+            flex-shrink: 0 !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            background: var(--forest-dark) !important;
+        }
+    }
+</style>
 <!-- <link rel="stylesheet" href="physiotherapy/css/responsive.css"> -->
 
     <!-- Contact CSS -->
@@ -129,7 +152,7 @@
 
 <header class="navbar">
 
-    <div class="nav-wrapper">
+    <div class="container nav-wrapper">
 
         <!-- LOGO -->
 
@@ -138,10 +161,16 @@
             <img
                 src="images/8.webp"
                 alt="Healing Vibes Clinic"
-                class="brand__logo"
+                class="brand-logo"
             >
 
         </a>
+
+        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mainNav">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
 
 
         <!-- NAV -->
@@ -164,7 +193,7 @@
                 <button
                     type="button"
                     class="nav-link nav-link-drop"
-                    id="servicesButton"
+                    id="serviceDropdownBtn"
                 >
                     Our Services
 
@@ -276,6 +305,37 @@
     </div>
 
 </header>
+
+<div class="mobile-menu" id="mobileMenu">
+    <a href="home.html">Home</a>
+    <a href="about.html">About Us</a>
+    <button type="button" class="mobile-services-btn" id="mobileServicesBtn">
+        <span>Our Services</span><span class="mobile-arrow">+</span>
+    </button>
+    <div class="mobile-services" id="mobileServices">
+        <a href="manual-therapy.html">Manual Therapy</a>
+        <a href="exercise-therapy.html">Exercise Therapy</a>
+        <a href="Electrotherapy.html">Electrotherapy</a>
+        <a href="Longwave.html">Longwave Therapy</a>
+        <a href="Laser.html">Laser Therapy</a>
+        <a href="Taping.html">Taping Therapy</a>
+        <a href="Drycupping.html">Dry Cupping Therapy</a>
+        <a href="DryNeedling.html">Dry Needling Therapy</a>
+        <a href="Painmanagement.html">Pain Management Therapy</a>
+        <a href="rehabilitation.html">Pre/Post Surgical Rehabilitation</a>
+        <a href="injury.html">Sports Injury Management</a>
+        <a href="Geriatric.html">Geriatric Rehabilitation</a>
+        <a href="Gait.html">Gait and Balance Training</a>
+        <a href="Neurological.html">Neurological Rehabilitation</a>
+        <a href="Osteopathy.html">Osteopathic Rehabilitation</a>
+        <a href="Chiropractic.html">Chiropractic</a>
+        <a href="Kineticchain.html">Kinetic Chain Therapy</a>
+        <a href="Strength.html">Strength Training</a>
+    </div>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="appointment.html" class="mobile-appointment">Book Appointment</a>
+</div>
 
 
 <!-- =====================================================
@@ -1012,6 +1072,54 @@
 
 <script src="js/script.js"></script>
 <script src="js/menu.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.getElementById("menuToggle");
+        const mobileMenu = document.getElementById("mobileMenu");
+        const mobileServicesBtn = document.getElementById("mobileServicesBtn");
+        const mobileServices = document.getElementById("mobileServices");
+        const serviceDropdownBtn = document.getElementById("serviceDropdownBtn");
+        const serviceDropdown = document.querySelector(".nav-dropdown");
+
+        if (menuToggle && mobileMenu) {
+            menuToggle.addEventListener("click", function () {
+                const isOpen = mobileMenu.classList.toggle("show");
+                menuToggle.classList.toggle("active", isOpen);
+                menuToggle.setAttribute("aria-expanded", String(isOpen));
+            });
+        }
+
+        if (mobileServicesBtn && mobileServices) {
+            mobileServicesBtn.addEventListener("click", function () {
+                const isOpen = mobileServices.classList.toggle("show");
+                mobileServicesBtn.classList.toggle("open", isOpen);
+            });
+        }
+
+        if (serviceDropdownBtn && serviceDropdown) {
+            serviceDropdownBtn.addEventListener("click", function (event) {
+                event.stopPropagation();
+                const isOpen = serviceDropdown.classList.toggle("open");
+                serviceDropdownBtn.setAttribute("aria-expanded", String(isOpen));
+            });
+        }
+
+        document.addEventListener("click", function (event) {
+            if (serviceDropdown && !serviceDropdown.contains(event.target)) {
+                serviceDropdown.classList.remove("open");
+                serviceDropdownBtn.setAttribute("aria-expanded", "false");
+            }
+        });
+
+        mobileMenu.querySelectorAll("a").forEach(function (link) {
+            link.addEventListener("click", function () {
+                mobileMenu.classList.remove("show");
+                menuToggle.classList.remove("active");
+                menuToggle.setAttribute("aria-expanded", "false");
+            });
+        });
+    });
+</script>
 <script src="js/contact.js"></script>
 
 </body>

@@ -15,30 +15,11 @@
 /* ::::::::::::::::::::::::::::::::::::::::::::; */
 /* =========================================
    RESPONSIVE NAVBAR
+   (menu-toggle base styling now comes ONLY
+   from style.css — removed the duplicate
+   rule here that was overriding its icon
+   background/color)
 ========================================= */
-
-.menu-toggle {
-    display: none;
-    width: 42px;
-    height: 42px;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    padding: 8px;
-
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-}
-
-.menu-toggle span {
-    display: block;
-    width: 25px;
-    height: 2px;
-    background: #222;
-    transition: all 0.3s ease;
-}
 
 
 /* =========================================
@@ -73,21 +54,21 @@
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     }
 
-    .nav.active {
+    .nav.is-open {
         display: flex;
     }
 
-    .nav__link {
+    .nav-link {
         width: 100%;
         padding: 13px 10px;
         text-align: left;
     }
 
-    .nav__dropdown {
+    .nav-dropdown {
         width: 100%;
     }
 
-    .nav__link--drop {
+    .nav-link-drop {
         width: 100%;
         display: flex;
         justify-content: space-between;
@@ -97,7 +78,7 @@
         cursor: pointer;
     }
 
-    .nav__dropdown-menu {
+    .nav-dropdown-menu {
         position: static;
         display: none;
         width: 100%;
@@ -105,11 +86,11 @@
         padding-left: 15px;
     }
 
-    .nav__dropdown.active .nav__dropdown-menu {
+    .nav-dropdown.is-open .nav-dropdown-menu {
         display: block;
     }
 
-    .nav__dropdown-menu a {
+    .nav-dropdown-menu a {
         display: block;
         padding: 10px;
     }
@@ -148,12 +129,12 @@
         padding: 10px 15px 20px;
     }
 
-    .nav__link {
+    .nav-link {
         font-size: 15px;
         padding: 12px 8px;
     }
 
-    .nav__dropdown-menu a {
+    .nav-dropdown-menu a {
         font-size: 14px;
         padding: 9px 8px;
     }
@@ -180,7 +161,7 @@
 
 /* Mobile nav collapse */
 @media (max-width: 860px){
-  .nav-toggle{ display:flex; }
+    .menu-toggle{ display:flex; }
   .nav{
     position:absolute;
     top:100%; left:0; right:0;
@@ -196,9 +177,9 @@
     z-index:40;
   }
   .nav.is-open{ max-height:520px; padding:12px 20px 20px; }
-  .nav__link{ width:100%; padding:10px 0; }
-  .nav__dropdown{ width:100%; }
-  .nav__dropdown-menu{
+    .nav-link{ width:100%; padding:10px 0; }
+    .nav-dropdown{ width:100%; }
+    .nav-dropdown-menu{
     position:static;
     box-shadow:none;
     opacity:1; visibility:visible; transform:none;
@@ -206,7 +187,7 @@
     padding-left:12px;
     min-width:0;
   }
-  .nav__dropdown.is-open .nav__dropdown-menu{ display:flex; }
+    .nav-dropdown.is-open .nav-dropdown-menu{ display:flex; }
   .location-pin{ margin-left:auto; }
 }
 @media (max-width: 768px) {
@@ -231,6 +212,146 @@
     .appointment-arrow {
         font-size: 16px;
     }
+}
+
+@media (max-width: 992px) {
+    .menu-toggle {
+        display: flex !important;
+    }
+}
+
+@media (max-width: 800px) {
+    .navbar .nav-wrapper {
+        width: 100%;
+        max-width: none;
+        height: 145px;
+        min-height: 145px;
+        margin: 0;
+        padding: 0 28px;
+        position: relative;
+        gap: 0;
+    }
+
+    .navbar .brand {
+        position: absolute;
+        top: 19px;
+        left: 50%;
+        margin: 0;
+        transform: translateX(-50%);
+    }
+
+    .navbar .brand-logo,
+    .navbar .brand__logo {
+        width: 125px;
+        height: auto;
+    }
+
+    .navbar .appointment-btn {
+        display: inline-flex !important;
+        align-items: center;
+        gap: 8px;
+        position: absolute;
+        top: 77px;
+        left: 50%;
+        margin: 0;
+        padding: 10px 14px;
+        transform: translateX(-50%);
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    .navbar .menu-toggle {
+        width: 44px;
+        height: 44px;
+        padding: 9px;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        gap: 0;
+        position: absolute;
+        top: 79px;
+        right: 15px;
+        margin: 0;
+        z-index: 1001;
+        flex-shrink: 0;
+    }
+
+    .navbar .menu-toggle span {
+        display: block !important;
+        width: 25px !important;
+        height: 2px !important;
+        margin: 5px auto !important;
+        flex-shrink: 0 !important;
+        background: var(--forest-dark) !important;
+    }
+}
+
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 145px;
+    left: 0;
+    width: 100%;
+    max-height: calc(100vh - 145px);
+    overflow-y: auto;
+    z-index: 999;
+    padding: 15px 20px 25px;
+    background: var(--white);
+    border-top: 1px solid rgba(13, 115, 119, 0.12);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.mobile-menu.show { display: block; }
+
+@media (max-width: 800px) {
+    .navbar .menu-toggle {
+        position: absolute !important;
+        top: 79px !important;
+        right: 15px !important;
+        left: auto !important;
+        margin: 0 !important;
+    }
+}
+
+.mobile-menu > a,
+.mobile-services-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 8px;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid rgba(13, 115, 119, 0.08);
+    color: var(--ink);
+    text-align: left;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.mobile-services {
+    display: none;
+    padding-left: 12px;
+    background: rgba(13, 115, 119, 0.03);
+}
+
+.mobile-services.show { display: block; }
+
+.mobile-services a {
+    display: block;
+    padding: 11px 8px;
+    color: var(--text);
+    font-size: 14px;
+    border-bottom: 1px solid rgba(13, 115, 119, 0.06);
+}
+
+.mobile-appointment {
+    margin-top: 18px;
+    justify-content: center !important;
+    background: var(--forest) !important;
+    color: var(--white) !important;
+    border-radius: var(--radius-pill) !important;
 }
 /* Tablets/small desktop — feature strip stacks */
 @media (max-width: 768px){
