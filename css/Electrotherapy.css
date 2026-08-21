@@ -1652,39 +1652,41 @@ button {
 
 
 /* =========================================
-   MOBILE HEADER FIX (Logo Perfectly Centered
-   + Hamburger left + Appointment icon right)
+   MOBILE HEADER FIX (Logo Centered
+   + Hamburger left + Full Appointment button right)
 ========================================= */
 
 @media (max-width: 800px) {
 
     .nav-wrapper {
-        display: grid;
-        grid-template-columns: 44px 1fr 44px;
+        display: flex !important;
         align-items: center;
+        justify-content: space-between;
         height: 72px;
-        padding: 0 15px;
+        padding: 0 12px;
+        gap: 8px;
     }
 
-    /* Hamburger icon - left column */
+    /* Hamburger icon - left */
     .menu-toggle {
         display: flex;
-        grid-column: 1;
-        justify-self: start;
+        flex-shrink: 0;
         z-index: 1101;
         margin: 0;
     }
 
-    /* Logo - middle column, perfectly centered */
+    /* Logo - center, takes remaining space */
     .nav-wrapper .brand {
-        grid-column: 2;
-        justify-self: center;
+        flex: 1;
+        justify-content: center;
         align-items: center;
         margin: 0;
+        min-width: 0;
+        overflow: hidden;
     }
 
     .nav-wrapper .brand__logo {
-        width: 100px;
+        width: 80px;
         height: auto;
         object-fit: contain;
     }
@@ -1694,37 +1696,38 @@ button {
         display: none !important;
     }
 
-    /* Appointment button becomes a compact round icon - right column */
+    /* Appointment button - full pill with text, right side, always visible */
     .nav-wrapper > .appointment-btn {
-        display: flex !important;
-        grid-column: 3;
-        justify-self: end;
-        width: 40px;
-        height: 40px;
-        padding: 0;
-        border-radius: 50%;
-        font-size: 0;
-        gap: 0;
-    }
-
-    .nav-wrapper > .appointment-btn::before {
-        content: "\2192";
-        font-size: 18px;
+        display: inline-flex !important;
+        flex-shrink: 0;
+        align-items: center;
+        padding: 9px 14px;
+        font-size: 12px;
+        gap: 5px;
+        white-space: nowrap;
         color: #ffffff;
     }
 
     .nav-wrapper > .appointment-btn .appointment-arrow {
-        display: none;
+        display: inline;
+        font-size: 14px;
     }
 }
 
 @media (max-width: 400px) {
-    .nav-wrapper .brand__logo {
-        width: 85px;
-    }
 
     .nav-wrapper {
-        grid-template-columns: 40px 1fr 40px;
+        padding: 0 10px;
+        gap: 6px;
+    }
+
+    .nav-wrapper .brand__logo {
+        width: 65px;
+    }
+
+    .nav-wrapper > .appointment-btn {
+        padding: 8px 10px;
+        font-size: 11px;
     }
 }
 
