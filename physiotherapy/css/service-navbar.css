@@ -1,3 +1,7 @@
+.mobile-menu {
+    display: none;
+}
+
 /* Shared mobile navbar layout for service pages */
 @media (max-width: 800px) {
     .navbar .nav-wrapper {
