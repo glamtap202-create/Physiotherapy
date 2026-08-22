@@ -1231,7 +1231,6 @@ button {
 
 }
 
-
 @media (max-width: 600px) {
 
     .topbar {
@@ -1240,6 +1239,7 @@ button {
 
     .nav-wrapper {
         min-height: 100px;
+        gap: 12px;
     }
 
     .brand-logo {
@@ -1247,6 +1247,15 @@ button {
     }
 
     .appointment-btn {
+        display: inline-flex;
+        padding: 10px 14px;
+        font-size: 13px;
+        margin-left: auto;
+        border-radius: 40px;
+        gap: 0;
+    }
+
+    .appointment-btn span {
         display: none;
     }
 

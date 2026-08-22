@@ -251,361 +251,183 @@ select {
 ===================================================== */
 
 .therapy-hero {
-
     min-height: 650px;
-
     position: relative;
-
     display: flex;
-
     align-items: center;
-
     overflow: hidden;
-
     background: #093136;
 }
 
-
-/* =====================================================
-   OVERLAY
-===================================================== */
-
 .hero-overlay {
-
     position: absolute;
-
     inset: 0;
-
     background:
         radial-gradient(
             circle at 75% 45%,
             rgba(158, 223, 214, 0.12),
             transparent 40%
         );
-
     pointer-events: none;
 }
 
-
-/* =====================================================
-   HERO CONTAINER
-===================================================== */
-
 .therapy-hero .hero-content {
-
     position: relative;
-
     z-index: 2;
-
     width: 100%;
-
     max-width: 1400px;
-
     margin: auto;
-
     padding: 65px 30px;
-
     display: grid;
-
     grid-template-columns: 1fr 1fr;
-
     align-items: center;
-
     gap: 65px;
 }
 
-
-/* =====================================================
-   LEFT SIDE
-===================================================== */
-
 .hero-left {
-
     position: relative;
-
     z-index: 3;
 }
 
-
-/* =====================================================
-   BREADCRUMB
-===================================================== */
-
 .breadcrumb {
-
     display: flex;
-
     flex-wrap: wrap;
-
     align-items: center;
-
     gap: 10px;
-
     color: rgba(255,255,255,0.75);
-
     font-size: 13px;
-
     margin-bottom: 50px;
 }
 
-
 .breadcrumb a {
-
     color: #ffffff;
-
     text-decoration: none;
-
     transition: 0.3s ease;
 }
 
-
 .breadcrumb a:hover {
-
     color: #9edfd6;
 }
 
-
-/* =====================================================
-   HERO TEXT
-===================================================== */
-
 .hero-text {
-
     max-width: 720px;
 }
 
-
 .hero-label {
-
     display: inline-block;
-
     color: #9edfd6;
-
     font-size: 12px;
-
     font-weight: 800;
-
     letter-spacing: 2px;
-
     margin-bottom: 14px;
 }
 
-
 .hero-text h1 {
-
     color: #ffffff;
-
-    font-family:
-        "Playfair Display",
-        Georgia,
-        serif;
-
+    font-family: "Playfair Display", Georgia, serif;
     font-size: clamp(48px, 6vw, 76px);
-
     line-height: 1.05;
-
     margin: 0 0 25px;
 }
 
-
 .hero-text h1 span {
-
     display: block;
-
     color: #9edfd6;
 }
 
-
 .hero-text p {
-
     max-width: 650px;
-
     color: rgba(255,255,255,0.85);
-
     font-size: 17px;
-
     line-height: 1.7;
-
     margin-bottom: 32px;
 }
 
-
-/* =====================================================
-   BUTTONS
-===================================================== */
-
 .hero-buttons {
-
     display: flex;
-
     flex-wrap: wrap;
-
     gap: 13px;
 }
 
-
 .primary-btn,
 .secondary-btn {
-
     display: inline-flex;
-
     align-items: center;
-
     justify-content: center;
-
     gap: 14px;
-
     min-height: 50px;
-
     padding: 0 22px;
-
     border-radius: 5px;
-
     font-weight: 700;
-
     text-decoration: none;
-
     transition: 0.3s ease;
 }
 
-
 .primary-btn {
-
     background: #168f83;
-
     color: #ffffff;
 }
 
-
 .primary-btn:hover {
-
     background: #ffffff;
-
     color: #126f67;
-
     transform: translateY(-2px);
 }
 
-
 .secondary-btn {
-
-    border: 1px solid
-        rgba(255,255,255,0.55);
-
+    border: 1px solid rgba(255,255,255,0.55);
     color: #ffffff;
-
     background: transparent;
 }
 
-
 .secondary-btn:hover {
-
     background: #ffffff;
-
     color: #173f46;
 }
 
-
-/* =====================================================
-   RIGHT BANNER
-===================================================== */
-
 .hero-banner {
-
     position: relative;
-
     width: 100%;
-
     height: 480px;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     overflow: hidden;
-
     border-radius: 28px;
 }
-
-
-/* =====================================================
-   BANNER IMAGE
-===================================================== */
 
 .hero-banner img {
-
     width: 100%;
-
     height: 100%;
-
-    /*
-       IMPORTANT:
-       contain use karne se
-       image crop nahi hogi.
-    */
-
     object-fit: contain;
-
     object-position: center;
-
     display: block;
-
     border-radius: 28px;
-
-    box-shadow:
-        0 25px 60px
-        rgba(0,0,0,0.28);
+    box-shadow: 0 25px 60px rgba(0,0,0,0.28);
 }
 
-
-/* =====================================================
-   FLOATING CARD
-===================================================== */
-
 .hero-info-card {
-
     position: absolute;
-
     left: 25px;
-
     bottom: 25px;
-
     min-width: 210px;
-
     padding: 17px 22px;
-
     background: #ffffff;
-
     border-radius: 15px;
-
     display: flex;
-
     flex-direction: column;
-
     gap: 5px;
-
-    box-shadow:
-        0 15px 40px
-        rgba(0,0,0,0.20);
-
+    box-shadow: 0 15px 40px rgba(0,0,0,0.20);
     z-index: 5;
 }
 
-
 .hero-info-card strong {
-
     color: #173f46;
-
     font-size: 17px;
 }
 
-
 .hero-info-card span {
-
     color: #666666;
-
     font-size: 13px;
 }
 
@@ -617,63 +439,41 @@ select {
 @media (max-width: 992px) {
 
     .therapy-hero {
-
         min-height: auto;
     }
 
-
     .therapy-hero .hero-content {
-
         grid-template-columns: 1fr;
-
         gap: 50px;
-
         padding: 70px 30px;
     }
 
-
     .hero-left {
-
         text-align: center;
     }
 
-
     .breadcrumb {
-
         justify-content: center;
-
         margin-bottom: 35px;
     }
 
-
     .hero-text {
-
         margin: auto;
     }
 
-
     .hero-text p {
-
         margin-left: auto;
-
         margin-right: auto;
     }
 
-
     .hero-buttons {
-
         justify-content: center;
     }
 
-
     .hero-banner {
-
         width: 100%;
-
         max-width: 700px;
-
         height: 430px;
-
         margin: auto;
     }
 
@@ -687,90 +487,57 @@ select {
 @media (max-width: 600px) {
 
     .therapy-hero .hero-content {
-
         padding: 55px 20px;
-
         gap: 40px;
     }
 
-
     .breadcrumb {
-
         font-size: 12px;
-
         gap: 7px;
-
         justify-content: center;
     }
 
-
     .hero-label {
-
         font-size: 11px;
-
         letter-spacing: 1.5px;
     }
 
-
     .hero-text h1 {
-
         font-size: 48px;
-
         line-height: 1;
     }
 
-
     .hero-text p {
-
         font-size: 16px;
-
         line-height: 1.6;
     }
 
-
     .hero-buttons {
-
         width: 100%;
-
         flex-direction: column;
     }
 
-
     .primary-btn,
     .secondary-btn {
-
         width: 100%;
     }
-
 
     .hero-banner {
-
         height: 320px;
-
         border-radius: 20px;
     }
-
 
     .hero-banner img {
-
         width: 100%;
-
         height: 100%;
-
         object-fit: contain;
-
         border-radius: 20px;
     }
 
-
     .hero-info-card {
-
         left: 12px;
-
         bottom: 12px;
-
         min-width: 175px;
-
         padding: 13px 16px;
     }
 
@@ -784,25 +551,18 @@ select {
 @media (max-width: 400px) {
 
     .hero-text h1 {
-
         font-size: 42px;
     }
 
-
     .hero-text p {
-
         font-size: 15px;
     }
 
-
     .hero-banner {
-
         height: 270px;
     }
 
-
     .hero-info-card {
-
         min-width: 155px;
     }
 
@@ -1325,20 +1085,12 @@ select {
     padding: 75px 0 0;
 }
 
-/* =========================
-   FOOTER GRID
-========================= */
-
 .footer-grid {
     display: grid;
     grid-template-columns: 1.4fr 0.8fr 1fr 1fr;
     gap: 50px;
     padding-bottom: 55px;
 }
-
-/* =========================
-   FOOTER BRAND
-========================= */
 
 .footer-brand img {
     width: 170px;
@@ -1354,10 +1106,6 @@ select {
     font-size: 14px;
     line-height: 1.8;
 }
-
-/* =========================
-   FOOTER COLUMNS
-========================= */
 
 .footer-column {
     display: flex;
@@ -1385,10 +1133,6 @@ select {
     color: #72d8d1;
 }
 
-/* =========================
-   FOOTER BOTTOM
-========================= */
-
 .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.12);
     padding: 22px 0;
@@ -1414,10 +1158,6 @@ select {
     color: #72d8d1;
 }
 
-/* =========================
-   FOOTER SOCIAL ICONS
-========================= */
-
 .footer .social-icon {
     color: #ffffff;
 }
@@ -1431,15 +1171,26 @@ select {
 
 @media (max-width: 1000px) {
 
+    .nav-wrapper {
+        justify-content: space-between;
+        gap: 8px;
+    }
+
+    .brand {
+        order: 2;
+    }
+
     .nav {
         display: none;
     }
 
     .appointment-btn {
-        margin-left: auto;
+        order: 3;
+        margin-left: 0;
     }
 
     .menu-toggle {
+        order: 1;
         display: block;
     }
 
@@ -1580,24 +1331,28 @@ select {
 
 @media (max-width: 700px) {
 
-    .topbar {
-        display: none;
-    }
-
     .nav-wrapper {
         min-height: 74px;
     }
 
     .brand-logo {
-        width: 120px;
+        width: 95px;
     }
 
     .appointment-btn {
+        display: inline-flex;
+        padding: 8px 10px;
+        font-size: 12px;
+        gap: 4px;
+    }
+
+    .appointment-btn span {
         display: none;
     }
 
     .menu-toggle {
-        margin-left: auto;
+        width: 36px;
+        height: 36px;
     }
 
     .therapy-hero {

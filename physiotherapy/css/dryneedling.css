@@ -224,6 +224,11 @@ select {
     border-radius: 8px;
     cursor: pointer;
     padding: 9px;
+    flex-shrink: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
 }
 
 .menu-toggle span {
@@ -231,7 +236,7 @@ select {
     width: 100%;
     background: #ffffff;
     display: block;
-    margin: 5px 0;
+    margin: 0;
     transition: 0.3s ease;
 }
 
@@ -245,47 +250,34 @@ select {
 .hero {
     position: relative;
     min-height: 680px;
-
     background: #123f3f;
-
     overflow: hidden;
-
     display: flex;
     align-items: center;
 }
 
-
 .hero-overlay {
     position: absolute;
     inset: 0;
-
     background:
         radial-gradient(
             circle at 75% 45%,
             rgba(96, 213, 203, 0.10),
             transparent 38%
         );
-
     pointer-events: none;
 }
-
 
 .hero-container {
     position: relative;
     z-index: 2;
-
     width: 100%;
     max-width: 1400px;
-
     margin: auto;
-
     padding: 80px 30px;
-
     display: grid;
     grid-template-columns: 1fr 1fr;
-
     align-items: center;
-
     gap: 70px;
 }
 
@@ -297,52 +289,34 @@ select {
     z-index: 2;
 }
 
-
 .small-title {
     display: inline-block;
-
     margin-bottom: 20px;
-
     color: #65d4ca;
-
     font-size: 14px;
     font-weight: 700;
-
     letter-spacing: 2px;
 }
 
-
 .hero-content h1 {
     margin: 0 0 25px;
-
     color: #ffffff;
-
     font-family: Georgia, "Times New Roman", serif;
-
     font-size: clamp(60px, 7vw, 100px);
-
     font-weight: 500;
-
     line-height: .9;
 }
 
-
 .hero-content h1 span {
     display: block;
-
     color: #68d5cb;
 }
 
-
 .hero-content p {
     max-width: 620px;
-
     margin-bottom: 35px;
-
     color: #ffffff;
-
     font-size: 18px;
-
     line-height: 1.7;
 }
 
@@ -351,60 +325,41 @@ select {
 
 .hero-buttons {
     display: flex;
-
     gap: 15px;
-
     flex-wrap: wrap;
 }
 
-
 .btn {
     display: inline-flex;
-
     align-items: center;
     justify-content: center;
-
     gap: 15px;
-
     min-height: 56px;
-
     padding: 0 28px;
-
     border-radius: 40px;
-
     text-decoration: none;
-
     font-size: 15px;
     font-weight: 700;
-
     transition: .3s ease;
 }
 
-
 .btn.primary {
     background: #ffffff;
-
     color: #123f3f;
 }
 
-
 .btn.primary:hover {
     background: #68d5cb;
-
     transform: translateY(-3px);
 }
 
-
 .btn.outline {
     color: #ffffff;
-
     border: 1px solid rgba(255,255,255,.45);
 }
 
-
 .btn.outline:hover {
     background: #ffffff;
-
     color: #123f3f;
 }
 
@@ -413,39 +368,23 @@ select {
 
 .hero-banner {
     position: relative;
-
     width: 100%;
     height: 500px;
-
     display: flex;
-
     align-items: center;
     justify-content: center;
-
     overflow: hidden;
-
     border-radius: 28px;
 }
-
 
 .hero-banner img {
     width: 100%;
     height: 100%;
-
-    /*
-       IMPORTANT:
-       Image crop nahi hogi
-    */
     object-fit: contain;
-
     object-position: center;
-
     display: block;
-
     border-radius: 28px;
-
-    box-shadow:
-        0 25px 60px rgba(0,0,0,.28);
+    box-shadow: 0 25px 60px rgba(0,0,0,.28);
 }
 
 
@@ -453,38 +392,25 @@ select {
 
 .hero-info-card {
     position: absolute;
-
     left: 25px;
     bottom: 25px;
-
     min-width: 210px;
-
     padding: 17px 22px;
-
     background: #ffffff;
-
     border-radius: 15px;
-
     display: flex;
     flex-direction: column;
-
     gap: 5px;
-
-    box-shadow:
-        0 15px 40px rgba(0,0,0,.20);
+    box-shadow: 0 15px 40px rgba(0,0,0,.20);
 }
-
 
 .hero-info-card strong {
     color: #123f3f;
-
     font-size: 17px;
 }
 
-
 .hero-info-card span {
     color: #666666;
-
     font-size: 13px;
 }
 
@@ -499,9 +425,7 @@ select {
 
     .hero-container {
         grid-template-columns: 1fr;
-
         gap: 50px;
-
         padding: 70px 30px;
     }
 
@@ -520,9 +444,7 @@ select {
 
     .hero-banner {
         max-width: 700px;
-
         height: 430px;
-
         margin: auto;
     }
 
@@ -535,13 +457,11 @@ select {
 
     .hero-container {
         padding: 55px 20px;
-
         gap: 40px;
     }
 
     .small-title {
         font-size: 12px;
-
         letter-spacing: 1.5px;
     }
 
@@ -551,13 +471,11 @@ select {
 
     .hero-content p {
         font-size: 16px;
-
         line-height: 1.6;
     }
 
     .hero-buttons {
         width: 100%;
-
         flex-direction: column;
     }
 
@@ -567,25 +485,20 @@ select {
 
     .hero-banner {
         height: 320px;
-
         border-radius: 20px;
     }
 
     .hero-banner img {
         width: 100%;
         height: 100%;
-
         object-fit: contain;
-
         border-radius: 20px;
     }
 
     .hero-info-card {
         left: 12px;
         bottom: 12px;
-
         min-width: 175px;
-
         padding: 13px 16px;
     }
 
@@ -1338,39 +1251,82 @@ select {
         display: none;
     }
 
-    .appointment-btn {
-        display: none;
+    .nav-wrapper {
+        min-height: 75px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        flex-wrap: nowrap;
     }
 
     .menu-toggle {
-        display: block;
+        display: flex !important;
+        order: 1;
+        position: relative;
+        z-index: 1001;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        width: 40px;
+        height: 38px;
+        flex-shrink: 0;
+        pointer-events: auto;
+        cursor: pointer;
     }
 
-    .nav-wrapper {
-        min-height: 75px;
+    .menu-toggle span {
+        display: block;
+        width: 18px;
+        height: 2px;
+        background: #ffffff;
+        margin: 0;
+        pointer-events: none;
+    }
+
+    .brand {
+        order: 2;
+        flex-shrink: 0;
     }
 
     .brand-logo {
-        width: 145px;
+        width: 110px;
+        height: auto;
+    }
+
+    .appointment-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 12px;
+        font-size: 12px;
+        gap: 4px;
+        order: 3;
+        margin-left: auto;
+        flex-shrink: 0;
+        white-space: nowrap;
+    }
+
+    .appointment-btn span {
+        display: none;
     }
 
 
-    /* MOBILE MENU */
-
+      /* MOBILE MENU */
     .mobile-menu {
         position: fixed;
-        top: 117px;
+        top: 75px;
         left: 0;
         width: 100%;
-        background: white;
-        z-index: 999;
+        background: #ffffff !important;
+        z-index: 9999;
         padding: 18px 20px 25px;
-        box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-
+        box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         display: flex;
         flex-direction: column;
 
-        max-height: calc(100vh - 117px);
+        max-height: calc(100vh - 75px);
         overflow-y: auto;
 
         transform: translateY(-20px);
@@ -1380,11 +1336,10 @@ select {
     }
 
     .mobile-menu.open {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
+        transform: translateY(0) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
     }
-
     .mobile-menu > a,
     .mobile-services-btn {
         padding: 14px 5px;
@@ -1545,7 +1500,6 @@ select {
     }
 
 }
-
 
 /* =====================================================
    SMALL MOBILE

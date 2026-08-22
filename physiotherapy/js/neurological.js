@@ -217,10 +217,7 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
 
-   revealElements.forEach(function (element) {
-    element.style.opacity = "0";
-    element.style.transform = "translateY(25px)";
-    element.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+ revealElements.forEach(function (element) {
     revealObserver.observe(element);
 });
 
